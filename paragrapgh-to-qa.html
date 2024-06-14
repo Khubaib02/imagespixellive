@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paragraph to Q&A</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+                      <!-- updated desc,keyword -->
+    <meta name="description" content="Do you need assistance writing your introduction? Or do you require assistance with paragraph rewriting? Send us your inquiry, and we'll get back to you with the details.">
+    <meta name="keywords" content="paragraph,introduction paragraph,paragraph rewriting,introduction paragraph examples,converter,concluding sentence,body paragraph,long paragraph,q&a,q&a get to know me,q&a for youtube,instagram q&a,download,text,free,online">
+
+
+        <meta name="keywords" content="youtube to mp3,youtube to mp3 converter,convert youtube to mp3,jpg to pdf,pdf to jpg,convert pdf to jpg	,convert jpg to pdf	,png to pdf	,remove bg,bg remover,back ground photo editing,image background removal,pixel picker,pixel color picker,pixel colour picker">
+        <meta name="author" content="Kaleem Waheed">
+
+        <script type="application/ld+json">
+          {
+            "@context" : "https://schema.org",
+            "@type" : "WebSite",
+            "name" : "Images Pixel",
+            "url" : "http://www.imagespixel.com/"
+          }
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="./css2.css">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link href="./bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+        <script src="./bootstrap.bundle.min.js"></script>
+        <script src="./app.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+        crossorigin="anonymous"></script>
+    </head>
+
+<style>
+      .loader_div{
+      background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+      position: absolute;
+      z-index: 20000;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+<body>
+  <div class="overlay"></div>
+    <div id="navbar"></div>
+      <section >
+        <div class="container mt-3 mb-5">
+            <div class="d-flex justify-content-center " >
+                  <div class="convert-heading">
+                  <h2 class="pt-5 text-center"><img alt="" src="./images/icons8-paragraph-96.png" class="me-2">Get Your Answers from Paragraph</h2>
+                  <h4 class="text-center d-block">Submit Paragraph and Q&A and get your answer</h4>
+                  </div>
+            </div>
+          </div>
+    
+        </div>
+    </section>
+<section>
+    <div class="container">
+      <div class="row position-relative">
+        <div id="loader_div"></div>
+        <div class="col-md-5">
+          <div class="mb-3">
+            <label style="margin-bottom: 5px;">Paragraph:</label>
+            <textarea class="form-control" id="paragraph_text" rows="12"></textarea>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="scrollable_div">
+            <div class="mb-3">
+              <label style="margin-bottom: 5px;">Question 1:</label>
+              <input type="text" class="form-control" style="cursor: text;" id="que1" placeholder="What is my name?">
+            <span id="answer1" class="d-none">
+              <label style="margin-bottom: 5px;">Answer 1:</label>
+              <textarea type="text" class="form-control"  id="ans1" placeholder="What is my name?" readonly></textarea>
+            </span>
+            </div>
+            <div class="mb-3 d-none" id="question2">
+              <label style="margin-bottom: 5px;">Question 2:</label>
+              <input type="text" class="form-control" style="cursor: text;" id="que2" placeholder="What is my name?">
+            <span id="answer2" class="d-none">
+              <label style="margin-bottom: 5px;">Answer 2:</label>
+              <textarea type="text" class="form-control"  id="ans2" placeholder="What is my name?" readonly></textarea>
+            </span>
+            </div>
+            <div class="mb-3 d-none" id="question3">
+              <label style="margin-bottom: 5px;">Question 3:</label>
+              <input type="text" class="form-control" style="cursor: text;" id="que3" placeholder="What is my name?">
+            <span id="answer3" class="d-none">
+              <label style="margin-bottom: 5px;">Answer 3:</label>
+              <textarea type="text" class="form-control"  id="ans3" placeholder="What is my name?" readonly></textarea>
+            </span>
+            </div>
+            <div class="mb-3 d-none" id="question4">
+              <label style="margin-bottom: 5px;">Question 4:</label>
+              <input type="text" class="form-control" style="cursor: text;" id="que4" placeholder="What is my name?">
+            <span id="answer4" class="d-none">
+              <label style="margin-bottom: 5px;">Answer 4:</label>
+              <textarea type="text" class="form-control"  id="ans4" placeholder="What is my name?" readonly></textarea>
+            </span>
+            </div>
+            <div class="mb-3 d-none" id="question5">
+              <label style="margin-bottom: 5px;">Question 5:</label>
+              <input type="text" class="form-control" style="cursor: text;" id="que5" placeholder="What is my name?">
+            <span id="answer5" class="d-none">
+              <label style="margin-bottom: 5px;">Answer 5:</label>
+              <textarea type="text" class="form-control"  id="ans5" placeholder="What is my name?" readonly></textarea>
+            </span>
+            </div>
+            <div>
+              <button style="background-color: cadetblue;" class="btn" onclick="add_question()">
+                <i class="bi bi-plus-circle-fill"></i>
+                Add new question
+              </button>
+              <button id="convert" class="btn btn-success">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- content for the page -->
+  <section>
+    <div class="container">
+      <div class="row mt-5 text-center">
+        <div class="col-md-12">
+          <h2>About Images Pixel</h2>
+          <div>
+            Images Pixel is a website that can help you get answers from a paragraph quickly and easily. The website uses advanced algorithms to identify key words and phrases from a text, allowing you to quickly and accurately extract information from any written text. With Images Pixel, you can quickly and accurately answer questions, summarize long texts and perform research with ease. It is an invaluable tool for students, professionals, researchers, and anyone who needs to quickly extract information from a written text. Images Pixel is an easy to use, fast and accurate way to get answers from a paragraph.          
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ <section class="mt-5">
+  <div class="container text-center">
+    <h2>How Images Pixel API Helps You Get Your Answers from Paragraph?</h2>
+    <p>If you are looking for a tool that allows you to Get Your Answers from Paragraphs then you are lucky because Images Pixel is the tool that is perfect for you. With Images Pixel API you can Get Your Answers from Paragraph for free!!</p>
+  </div>
+</section>
+<section>
+  <div class="container  pt-3" style="width:70%">
+    <div class="row mb-3 mt-3">
+      <div class="col-md-4 col-sm-12  ">
+        <div class="grid-div">
+            <div class="logo-icon"><img alt="" src="images/1122.png"></div>
+            <div class="logo-heading">How To Submit Your Question and Paragraph?</div>
+            <div class="p-text">
+              In the Paragraph, the text area enters the paragraph you want to extract your answers. After you enter your paragraph text you then enter the questions you want to extract from the paragraph.Then wait for our software to do its magic.
+            </div>
+        </div>
+      </div>
+       <div class="col-md-4  col-sm-12 ">
+         <div class="grid-div">
+        <div class="logo-icon"><img alt="" src="images/1.png"></div>
+        <div class="logo-heading">How To How To Get Your Answers from Paragraph??</div>
+        <div class="p-text">
+          After Entering your text in the paragraph area and questions in the question field answers will appear below your asked questions.
+        </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="grid-div">
+       <div class="logo-icon"><img alt="" src="images/3.png"></div>
+       <div class="logo-heading">Secure online conversion</div>
+       <div class="p-text">
+         Our Submit Your Question and Paragraph API adopts SSL connections to guarantee maximum security for your files. We delete all documents one hour after the conversion.
+       </div>
+       </div>
+     </div>
+    </div>
+</section>
+<div id="footer"></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+var count = 0
+function add_question(){
+count += 1
+if (count == 1){
+  $('#question2').removeClass('d-none')
+}
+else if (count == 2){
+  $('#question3').removeClass('d-none')
+}
+else if (count == 3){
+  $('#question4').removeClass('d-none')
+}
+else if (count == 4){
+  $('#question5').removeClass('d-none')
+}
+}
+
+</script>
+
+<script type="module">
+  import {url_light, url_heavy} from './url.js';
+  $(document).ready(function(){
+    $("#navbar").load("./components/navbar.html");
+    $("#footer").load("./components/footer.html");
+})
+document.getElementById("convert").onclick =function(){
+
+
+var question_list = []
+
+var question1 = $('#que1').val()
+var question2 = $('#que2').val()
+var question3 = $('#que3').val()
+var question4 = $('#que4').val()
+var question5 = $('#que5').val()
+
+if(question1!==''){
+question1 = question1.replace(",","")
+question_list.push(question1);
+}
+else{
+  $.notify("Please ask atleast 1 question!", "error");
+  return false;
+}
+if(question2!==''){
+question2 = question2.replace(",","")
+question_list.push(question2);
+}
+if(question3!==''){
+question3 = question3.replace(",","")
+question_list.push(question3);
+}
+if(question4!==''){
+question4 = question4.replace(",","")
+question_list.push(question4);
+}
+if(question5!==''){
+question5 = question5.replace(",","")
+question_list.push(question5);
+}
+var paragraph_text = $('#paragraph_text').val();
+if (paragraph_text==''){
+  $.notify("Please enter a paragraph!", "error");
+  return false;
+}
+var form_data = new FormData;
+form_data.append('questions[]', question_list)
+form_data.append('paragraph', paragraph_text)
+
+var api_url = url_heavy
+var url =api_url+'/ques_ans/'
+        $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+              $("#loader_div").addClass("loader_div");
+              },
+             success: function(data) {
+                 var status = data['status']
+                 var answers = data['Ans']
+                 if( status == 'success' ){
+                  var loop_count = 1
+                  for(var i=0; i < answers.length; i++){
+                    var answer_len = answers[i]
+                    // console.log(answer_len)
+                    if (loop_count == 1){
+                      $('#ans1').val(answer_len)
+                      $('#answer1').removeClass('d-none')
+                    }
+                    else if(loop_count == 2){
+                      $('#ans2').val(answer_len)
+                      $('#answer2').removeClass('d-none')
+                    }
+                    else if(loop_count == 3){
+                      $('#ans3').val(answer_len)
+                      $('#answer3').removeClass('d-none')
+                    }
+                    else if(loop_count == 4){
+                      $('#ans4').val(answer_len)
+                      $('#answer4').removeClass('d-none')
+                    }
+                    else if(loop_count == 5){
+                      $('#ans5').val(answer_len)
+                      $('#answer5').removeClass('d-none')
+                    }
+                    loop_count += 1
+                  }
+                 }
+                 if (status==' style="cursor: text;"'){
+                  window.open('./error.html')
+                 }
+             },
+              complete: function (data) {
+            $("#loader_div").removeClass("loader_div");
+            },
+         });
+};
+$(".drp").click(function(e){
+   e.stopPropagation();
+})
+</script>
+</body>
+</html>

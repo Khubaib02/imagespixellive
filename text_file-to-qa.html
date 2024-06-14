@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Text file to Q&A</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Submit text file and q&a">
+
+    <meta name="keywords" content="readtext,text,text-file,download text file,convert text file,Q&A,question,download,downloader,converter">
+    <meta name="author" content="Kaleem Waheed">
+
+    <script type="application/ld+json">
+      {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "Images Pixel",
+        "url" : "http://www.imagespixel.com/"
+      }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="./css2.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+    crossorigin="anonymous"></script>
+</head>
+<style>
+  input[name="myfile"] {
+  display: none;
+}
+.overlay{
+      display: none;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 2000;
+      /* background: rgba(255,255,255,0.8) url("https://raw.githubusercontent.com/projectz-tayyab/photo_app/main/loader.gif") center no-repeat;*/
+      background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+  }
+ /* body{
+      text-align: center;
+  } */
+  /* Turn off scrollbar when body element has the loading class */
+  body.loading{
+      overflow: hidden;
+  }
+  /* Make spinner image visible when body element has the loading class */
+  body.loading .overlay{
+      display: block;
+  }
+
+  .loader_div{
+      background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+      position: absolute;
+      z-index: 20000;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+<body>
+<div class="overlay"></div>
+    <div id="navbar"></div>
+<section >
+  <div class="container mt-3 mb-5">
+      <div class="d-flex justify-content-center " >
+            <div class="convert-heading">
+              <h2 class="pt-5 text-center"><img alt="" src="./images/icons8-txt-96.png" class="me-2">Submit Text file and get Answers</h2>
+              <h4 class="text-center d-block">Choose  a text file,submit questions and get answers in return.</h4>
+            </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section>
+<div class="container">
+  <div class="position-relative">
+    <div id="loader_div"></div>
+    <div class="row">
+      <div class="col-md-5">
+        <section >
+          <div class="container mt-3 mb-5">
+            <div class="container  w-75">
+              <div class="file-dropdown-div w-100">
+                    <div class="row ">
+                      <div class="col-12 " style="background-color:#4568DC;">
+                        <div class="m-4 text-white p-5 text-center choose-file-to-jpg-div" style="display: flex; flex-direction: column; align-items: center;">
+                          <h3>Submit a File</h3>
+                          <div>
+                          <!-- <h2>Submit Text File</h2> -->
+                          </div>
+                        <div>
+                              <label style="background-color: #B06AB3; border: none;" class="btn btn-danger" id="input" for="file_upload">Choose a File</label>
+                             <input id="file_upload" id="new_file" name="myfile" type="file" accept=".txt" class="btn btn-danger">
+                             <p id="selected_count" class="pt-2 m-0"></p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            <div id="results_div"></div>
+            </div>
+          </div>
+      </section>
+      </div>
+      <div class="col-md-5">
+        <div class="scrollable_div">
+          <div class="mb-3">
+            <label style="margin-bottom: 5px;">Question 1:</label>
+            <input type="text" class="form-control" style="cursor: text;" id="que1" placeholder="What is my name?">
+          <span id="answer1" class="d-none">
+            <label style="margin-bottom: 5px;">Answer 1:</label>
+            <textarea type="text" class="form-control" id="ans1" placeholder="What is my name?" readonly></textarea>
+          </span>
+          </div>
+          <div class="mb-3 d-none" id="question2">
+            <label style="margin-bottom: 5px;">Question 2:</label>
+            <input type="text" class="form-control" style="cursor: text;" id="que2" placeholder="What is my name?">
+          <span id="answer2" class="d-none">
+            <label style="margin-bottom: 5px;">Answer 2:</label>
+            <textarea type="text" class="form-control" id="ans2" placeholder="What is my name?" readonly></textarea> 
+          </span>
+          </div>
+          <div class="mb-3 d-none" id="question3">
+            <label style="margin-bottom: 5px;">Question 3:</label>
+            <input type="text" class="form-control" style="cursor: text;" id="que3" placeholder="What is my name?">
+          <span id="answer3" class="d-none">
+            <label style="margin-bottom: 5px;">Answer 3:</label>
+            <textarea type="text" class="form-control" id="ans3" placeholder="What is my name?" readonly></textarea>
+          </span>
+          </div>
+          <div class="mb-3 d-none" id="question4">
+            <label style="margin-bottom: 5px;">Question 4:</label>
+            <input type="text" class="form-control" style="cursor: text;" id="que4" placeholder="What is my name?">
+          <span id="answer4" class="d-none">
+            <label style="margin-bottom: 5px;">Answer 4:</label>
+            <textarea type="text" class="form-control" id="ans4" placeholder="What is my name?" readonly></textarea>
+          </span>
+          </div>
+          <div class="mb-3 d-none" id="question5">
+            <label style="margin-bottom: 5px;">Question 5:</label>
+            <input type="text" class="form-control" style="cursor: text;" id="que5" placeholder="What is my name?">
+          <span id="answer5" class="d-none">
+            <label style="margin-bottom: 5px;">Answer 5:</label>
+            <textarea type="text" class="form-control" id="ans5" placeholder="What is my name?" readonly></textarea>
+          </span>
+          </div>
+          <div>
+            <button style="background-color: cadetblue;" class="btn" onclick="add_question()">
+              <i class="bi bi-plus-circle-fill"></i>
+              Add new question
+            </button>
+            <button id="convert" class="btn btn-success">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<script>
+
+function myFunction() {
+var x = document.getElementById("myTopnav");
+if (x.className === "topnav") {
+  x.className += " responsive";
+} else {
+  x.className = "topnav";
+}
+}
+</script>
+<!-- section end -->
+
+  <!-- content for the page -->
+  <section>
+    <div class="container">
+      <div class="row mt-5 text-center">
+        <div class="col-md-12">
+          <h2>About Images Pixel</h2>
+          <div>
+            Are you looking for a way to quickly get answers from a text file? Look no further than Images Pixel! Our intuitive web-based platform helps you quickly and easily extract the answers you need from text files. With our powerful search engine, you can quickly find exactly what you need from within a text document. We offer a variety of features to make the process even easier, including natural language processing, sentiment analysis, and text categorization. Plus, our intuitive user interface makes it easy to get the answers you need in no time. Get the answers you need with Images Pixel today!          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="mt-5">
+    <div class="container text-center">
+      <h2>How Images Pixel API Helps You Get Your Answers from Text Files?</h2>
+      <p>If you are looking for a tool that allows you to Get Your Answers from Text Files then you are lucky because Images Pixel is the tool that is perfect for you. With Images Pixel API you can Get Your Answers from Text Files for free!!</p>
+    </div>
+  </section>
+  <section>
+    <div class="container  pt-3" style="width:70%">
+      <div class="row mb-3 mt-3">
+        <div class="col-md-4 col-sm-12  ">
+          <div class="grid-div">
+              <div class="logo-icon"><img alt="" src="images/1122.png"></div>
+              <div class="logo-heading">How To Submit Your Question and Text File?</div>
+              <div class="p-text">
+                You can submit your text file or drop your text file in the box shown on the screen. After that user enters the question they want to ask from the text file. Then wait for our software to do its magic.
+              </div>
+          </div>
+        </div>
+         <div class="col-md-4  col-sm-12 ">
+           <div class="grid-div">
+          <div class="logo-icon"><img alt="" src="images/1.png"></div>
+          <div class="logo-heading">How To How To Get Your Answers from Text File??</div>
+          <div class="p-text">
+            After Submitting your Text File and questions in the question field answers will appear below your asked questions.
+          </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="grid-div">
+         <div class="logo-icon"><img alt="" src="images/3.png"></div>
+         <div class="logo-heading">Secure online conversion</div>
+         <div class="p-text">
+           Our Submit Your Question and Text File API adopts SSL connections to guarantee maximum security for your files. We delete all documents one hour after the conversion.
+         </div>
+         </div>
+       </div>
+      </div>
+  </section>
+   <div id="footer"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+var count = 0
+function add_question(){
+count += 1
+if (count == 1){
+  $('#question2').removeClass('d-none')
+}
+else if (count == 2){
+  $('#question3').removeClass('d-none')
+}
+else if (count == 3){
+  $('#question4').removeClass('d-none')
+}
+else if (count == 4){
+  $('#question5').removeClass('d-none')
+}
+}
+</script>
+<script type="module">
+  $(document).ready(function(){
+    $("#navbar").load("./components/navbar.html");
+    $("#footer").load("./components/footer.html");
+})
+  import {url_light, url_heavy} from './url.js';
+  var api_url = url_heavy;
+  document.getElementById('file_upload').onchange = function() {
+    var totalfiles = document.getElementById('file_upload').files.length;
+    $('#selected_count').text(totalfiles + ' file selected')
+  }
+
+document.getElementById("convert").onclick =function(){
+
+
+var question_list = []
+
+var question1 = $('#que1').val()
+var question2 = $('#que2').val()
+var question3 = $('#que3').val()
+var question4 = $('#que4').val()
+var question5 = $('#que5').val()
+
+if(question1!==''){
+question1 = question1.replace(",","")
+question_list.push(question1);
+}
+else{
+  $.notify("Please ask atleast 1 question!", "error");
+  return false;
+}
+if(question2!==''){
+question2 = question2.replace(",","")
+question_list.push(question2);
+}
+if(question3!==''){
+question3 = question3.replace(",","")
+question_list.push(question3);
+}
+if(question4!==''){
+question4 = question4.replace(",","")
+question_list.push(question4);
+}
+if(question5!==''){
+question5 = question5.replace(",","")
+question_list.push(question5);
+}
+var image = $('#file_upload')[0].files[0];
+    var validExtensions = ['txt'];
+    var data_uri = $('#file_upload').prop('files')[0];
+    if (data_uri==undefined){
+        $.notify("Please select any txt file", "error");
+        $('#image_upload').val("")
+        return false;
+    }
+    var fileName = data_uri.name;
+            var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
+            fileNameExt = fileNameExt.toLowerCase();
+            if ($.inArray(fileNameExt, validExtensions) == -1){
+                $.notify("Invalid file type", "error");
+               $('#image_upload').val("")
+               return false;
+            }
+            else {
+                $.notify("Uploaded Successfully", "success");
+            }
+
+var form_data = new FormData;
+form_data.append('questions[]', question_list)
+form_data.append('file', image)
+var url = api_url+'/ques_ans_using_text/'
+        $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+              $("#loader_div").addClass("loader_div");
+              },
+             success: function(data) {
+                 var status = data['status']
+                 var answers = data['Ans']
+                 if( status == 'success' ){
+                  var loop_count = 1
+                  for(var i=0; i < answers.length; i++){
+                    var answer_len = answers[i]
+                    if (loop_count == 1){
+                      $('#ans1').val(answer_len)
+                      $('#answer1').removeClass('d-none')
+                    }
+                    else if(loop_count == 2){
+                      $('#ans2').val(answer_len)
+                      $('#answer2').removeClass('d-none')
+                    }
+                    else if(loop_count == 3){
+                      $('#ans3').val(answer_len)
+                      $('#answer3').removeClass('d-none')
+                    }
+                    else if(loop_count == 4){
+                      $('#ans4').val(answer_len)
+                      $('#answer4').removeClass('d-none')
+                    }
+                    else if(loop_count == 5){
+                      $('#ans5').val(answer_len)
+                      $('#answer5').removeClass('d-none')
+                    }
+                    loop_count += 1
+                  }
+                 }
+                 if (status=='failed'){
+                  window.open('./error.html')
+                 }
+             },
+              complete: function (data) {
+            $("#loader_div").removeClass("loader_div");
+            },
+         });
+};
+$(".drp").click(function(e){
+   e.stopPropagation();
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OpenAIGPT3 Content Generator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <!-- updated desc,keyword -->
+    <meta name="description" content="This AI content generator enables you to quickly and easily create high-quality content that is both engaging and unique.">
+    
+    <meta name="keywords" content="ai,ai content,ai content generator,free,tools,downloader,content creator,free content,openai api,api download">
+
+    <meta name="author" content="Kaleem Waheed">
+
+    <script type="application/ld+json">
+      {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "Images Pixel",
+        "url" : "http://www.imagespixel.com/"
+      }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="./css2.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+    crossorigin="anonymous"></script>
+</head>
+<style>
+    input[name="myfile[]"] {
+    display: none;
+}
+.overlay{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        /* background: rgba(255,255,255,0.8) url("https://raw.githubusercontent.com/projectz-tayyab/photo_app/main/loader.gif") center no-repeat;*/
+        background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+    }
+   /* body{
+        text-align: center;
+    } */
+    /* Turn off scrollbar when body element has the loading class */
+    body.loading{
+        overflow: hidden;
+    }
+    /* Make spinner image visible when body element has the loading class */
+    body.loading .overlay{
+        display: block;
+    }
+    .loader_div{
+      background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+      position: absolute;
+      z-index: 20000;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+<body>
+  <div class="overlay"></div>
+    <div id="navbar"></div>
+    
+<!-- homepage -->
+<section class="homepagee container ">
+    <div class="text">
+        <h2 >Generate High-</br>Quality Content in <span style="color: #023b6d; font-weight: bold;">Minutes</span></h2>
+        <p id="home_p"> This AI content generator enables you to quickly and easily create high-quality content that is both engaging and unique.</p>
+        <a href="#gen" class="btn btn-success">Generate Content Now</a>
+    </div>
+    <img class="ai_image" src="./images/pexels_christina_morillo_1181263.jpg" alt="img" style="border-radius: 10px;">
+</section>
+
+<!-- how it works -->
+<section class="how_container container">
+    <img class="ai_image" src="./images/pexels_pixabay_270348.jpg" alt="code"   alt="img" style="border-radius: 10px;">
+    <div class="text">
+        <h2>How Our AI Writer </br><span style="color: #023b6d; font-weight: bold;">Works</span></h2>
+        <p id="home_p">ImagesPixel’s AI content generator uses natural language processing and machine learning to generate content that is tailored to your specific needs. It can be used to generate blog posts, articles, social media posts, and more. With ImagesPixel, you can save time and money by creating content that is both relevant and engaging.</p>
+        <ol>
+            <li class="bg-main mt-2 mb-2" style="font-size: 20px;">Enter Your Open API KEY</li>
+            <li class="bg-main mt-2 mb-2"  style="font-size: 20px;">Enter Your Prompt</li>
+            <li class="bg-main mt-2 mb-2"  style="font-size: 20px;">Select Word Token Length</li>
+            <li class="bg-main mt-2 mb-2" style="font-size: 20px;">Click <b>Generate</b> Button</li>
+        </ol>
+    </div>
+</section>
+
+<section id="gen" class="container">
+  <div class="position-relative">
+    <div id="loader_div"></div>
+    <div class="mt-5">
+        <h2 class="text-center">GPT-3 <span style="color: #023b6d;">Blog/Content Generator</span></h2>
+        <div class="mt-5">
+            <div class="d-flex gap-5 flex-wrap">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Enter Your Open-AI Key</label>
+                  <input id="key" autocomplete="off" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your Open-AI Key with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <textarea id="prompt" value="write about pakistan" placeholder="Enter Your Prompt here..." id="" cols="30" rows="10" class="promptt p-5"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="tentacles">Word Token Length:</label>
+                    <input type="number" id="tentacles" name="tentacles" value="200" min="200" max="2000">
+                </div>
+            </div>
+            <button type="button" class="btn btn-success" id="convert">Generate</button>
+          </div>
+          </div>
+    </div>
+</section>
+
+<!-- response here -->
+
+<section id="result" class="container mt-5 mb-5 d-flex flex-column align-items-center"></section>
+
+<!-- api section -->
+<section class="mt-5 mb-5 container">
+    <div>
+        <h1>API</h1>
+        <div class="api_pricing shd mt-3" style="width: 75%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <div class="lang d-flex flex-wrap gap-4 p-2 mb-2" style="border-bottom: 1px solid black;">
+                <h6 id="c"><img src="./images/icons8-c-sharp-logo-50.png" alt="C#" style="width: 30px;height: 30px;"></h6>
+                <h6 id="java"><img src="./images/icons8-java-48.png" alt="java" style="width: 30px;height: 30px;"></h6>
+                <h6 id="react"><img src="./images/icons8-nodejs-48.png" alt="react" style="width: 30px;height: 30px;"></h6>
+                <h6 id="php"><img src="./images/icons8-php-logo-50.png" alt="php" style="width: 30px;height: 30px;"></h6>
+                <h6 id="swift"><img src="./images/icons8-swift-100.png" alt="swift" style="width: 30px;height: 30px;"></h6>
+                <h6 id="js"><img src="./images/icons8-javascript-48.png" alt="Javascript" style="width: 30px;height: 30px;"></h6>
+                <h6 id="py"><img src="./images/icons8-python-48.png" alt="python" style="width: 30px;height: 30px;"></h6>
+            </div>
+            <pre>
+                <code>
+                  import requests
+                  url = "http://API-URL-IMAGESPIXEL"
+                  payload={'api_key': 'your-open-ai-key',
+                  'prompt': 'write a post about imagespixel.com providing services of openai GPT3 ',
+                  'max_tokens': '1000'}
+                  files=[
+                  ]
+                  headers = {
+                    'Cookie': 'csrftoken=your-open-ai-key'
+                  }
+                  response = requests.request("POST", url, headers=headers, data=payload, files=files)
+                  print(response.text)
+                </code>
+              </pre>
+        </div>
+    </div>
+</section>
+
+<div id="footer"></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="module">
+  $(document).ready(function(){
+    $("#navbar").load("./components/navbar.html");
+    $("#footer").load("./components/footer.html");
+})
+  import {url_light, url_heavy} from './url.js';
+  
+  document.getElementById("convert").onclick = function() {
+    var key=$('#key').val();
+  var prompt=$('#prompt').val();
+  var token=$('#tentacles').val();
+  // validations
+  if(key===""&&prompt===""){
+    $.notify('Enter Key and Prompt','error')
+    return false
+  }
+  if(key===""){
+    $.notify('Enter Key','error')
+        return false
+  }
+  if(prompt===""){
+    $.notify('Enter Prompt','error')
+        return false
+  }
+    var form_data = new FormData();
+    form_data.append("api_key", key);
+    form_data.append("prompt", prompt);
+    form_data.append("max_tokens", token);
+         var url =url_heavy+'/api_blog_generator/'
+         $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+                $("#loader_div").addClass("loader_div");
+                },
+             success: function(data) {
+              $('#result').empty();
+                var status = data['status']
+                var text=data['text']
+                var folder_path=data['zip_file_url']
+                if (status=='success'){
+                  var a=''
+                  a+='<div class="box1">'
+                  a+='<textarea name="text" id="image_upload"  cols="30" rows="10" class="pt-3 px-3 textareagen">'+text+'</textarea>'
+                  a+='</div>'
+                  a+='<div class="box2 mt-3">'
+                  a+='<a class="download_button" href="'+folder_path+'"><button class="btn btn-success">Download Text File</button></a>'
+                  a+='</div>'
+                  $('#result').append(a);
+                }
+                if (status=='failed'){
+                  window.open('./error.html')
+                 }
+             },
+             complete: function (data) {
+                $("#loader_div").removeClass("loader_div");
+                },
+         });
+};
+$(".drp").click(function(e){
+   e.stopPropagation();
+})
+
+$('#c').click(function(){
+    $('code').html(`
+    url = "http://API-URL-IMAGESPIXEL"
+    params: api_key, prompt, max_tokens
+    var client = new RestClient(url);
+    client.Timeout = -1;
+    var request = new RestRequest(Method.POST);
+    request.AddHeader("Cookie", "your-open-ai-key");
+    request.AlwaysMultipartFormData = true;
+    request.AddParameter("api_key", "your-open-ai-key");
+    request.AddParameter("prompt", "write a post about imagespixel.com providing services of openai GPT3");
+    request.AddParameter("max_tokens", "1000");
+    IRestResponse response = client.Execute(request);
+    Console.WriteLine(response.Content);
+`)
+})
+
+$('#js').click(function(){
+    $('code').html(`
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "csrftoken=your-open-ai-key");
+    var formdata = new FormData();
+    formdata.append("api_key", "your-open-ai-key");
+    formdata.append("prompt", "write a post about imagespixel.com providing services of openai GPT3 ");
+    formdata.append("max_tokens", "1000");
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: formdata,
+    redirect: 'follow'
+    };
+    fetch("http://API-URL-IMAGESPIXEL", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  `)})
+
+$('#react').click(function(){
+    $('code').html(`
+        var http = require('follow-redirects').http;
+        var fs = require('fs');
+        var options = {
+          'method': 'POST',
+          'hostname': '0.0.0.0',
+          'port': 8001,
+          'path': '/api_blog_generator/',
+          'headers': {
+            'Cookie': 'csrftoken=your-open-ai-key'
+          },
+          'maxRedirects': 20
+        };
+        var req = http.request(options, function (res) {
+          var chunks = [];
+          res.on("data", function (chunk) {
+            chunks.push(chunk);
+          });
+          res.on("end", function (chunk) {
+            var body = Buffer.concat(chunks);
+            console.log(body.toString());
+          });
+          res.on("error", function (error) {
+            console.error(error);
+          });
+        });
+        var postData = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"api_key\"\r\n\r\nyour-open-ai-key\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"prompt\"\r\n\r\nwrite a post about imagespixel.com providing services of openai GPT3 \r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"max_tokens\"\r\n\r\n1000\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--";
+        req.setHeader('content-type', 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW');
+        req.write(postData);
+        req.end();
+`)
+  })
+
+$('#php').click(function(){
+  $('code').html(`
+  <?php
+    require_once 'HTTP/Request2.php';
+    $request = new HTTP_Request2();
+    $request->setUrl("http://API-URL-IMAGESPIXEL");
+    $request->setMethod(HTTP_Request2::METHOD_POST);
+    $request->setConfig(array(
+      'follow_redirects' => TRUE
+    ));
+    $request->addPostParameter(array(
+      'api_key' => 'your-open-ai-key',
+      'prompt' => 'write a post about imagespixel.com providing services of openai GPT3 ',
+      'max_tokens' => '1000'
+    ));
+    try {
+      $response = $request->send();
+      if ($response->getStatus() == 200) {
+        echo $response->getBody();
+      }
+      else {
+        echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+        $response->getReasonPhrase();
+      }
+    }
+    catch(HTTP_Request2_Exception $e) {
+      echo 'Error: ' . $e->getMessage();
+      }`)
+})
+
+$('#py').click(function(){
+  $('code').html(`
+        import requests
+      url = "http://API-URL-IMAGESPIXEL"
+      payload={'api_key': 'your-open-ai-key',
+      'prompt': 'write a post about imagespixel.com providing services of openai GPT3 ',
+      'max_tokens': '1000'}
+      files=[
+      ]
+      headers = {
+        'Cookie': 'csrftoken=your-open-ai-key'
+      }
+      response = requests.request("POST", url, headers=headers, data=payload, files=files)
+      print(response.text)
+`)
+})
+
+$('#java').click(function(){
+  $('code').html(`
+      OkHttpClient client = new OkHttpClient().newBuilder()
+      .build();
+    MediaType mediaType = MediaType.parse("text/plain");
+    RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
+      .addFormDataPart("api_key","your-open-ai-key")
+      .addFormDataPart("prompt","write a post about imagespixel.com providing services of openai GPT3 ")
+      .addFormDataPart("max_tokens","1000")
+      .build();
+    Request request = new Request.Builder()
+      .url("http://API-URL-IMAGESPIXEL")
+      .method("POST", body)
+      .addHeader("Cookie", "csrftoken=your-open-ai-key")
+      .build();
+    Response response = client.newCall(request).execute();
+`)
+})
+
+$('#swift').click(function(){
+  $('code').html(`
+          import Foundation
+        #if canImport(FoundationNetworking)
+        import FoundationNetworking
+        #endif
+        var semaphore = DispatchSemaphore (value: 0)
+        let parameters = [
+          [
+            "key": "api_key",
+            "value": "your-open-ai-key",
+            "type": "text"
+          ],
+          [
+            "key": "prompt",
+            "value": "write a post about imagespixel.com providing services of openai GPT3 ",
+            "type": "text"
+          ],
+          [
+            "key": "max_tokens",
+            "value": "1000",
+            "type": "text"
+          ]] as [[String : Any]]
+        let boundary = "Boundary-\(UUID().uuidString)"
+        var body = ""
+        var error: Error? = nil
+        for param in parameters {
+          if param["disabled"] == nil {
+            let paramName = param["key"]!
+            body += "--\(boundary)\r\n"
+            body += "Content-Disposition:form-data; name=\"\(paramName)\""
+            if param["contentType"] != nil {
+              body += "\r\nContent-Type: \(param["contentType"] as! String)"
+            }
+            let paramType = param["type"] as! String
+            if paramType == "text" {
+              let paramValue = param["value"] as! String
+              body += "\r\n\r\n\(paramValue)\r\n"
+            } else {
+              let paramSrc = param["src"] as! String
+              let fileData = try NSData(contentsOfFile:paramSrc, options:[]) as Data
+              let fileContent = String(data: fileData, encoding: .utf8)!
+              body += "; filename=\"\(paramSrc)\"\r\n"
+                + "Content-Type: \"content-type header\"\r\n\r\n\(fileContent)\r\n"
+            }
+          }
+        }
+        body += "--\(boundary)--\r\n";
+        let postData = body.data(using: .utf8)
+        var request = URLRequest(url: URL(string: "http://API-URL-IMAGESPIXEL")!,timeoutInterval: Double.infinity)
+        request.addValue("csrftoken=your-open-ai-key", forHTTPHeaderField: "Cookie")
+        request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        request.httpBody = postData
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+            semaphore.signal()
+            return
+          }
+          print(String(data: data, encoding: .utf8)!)
+          semaphore.signal()
+        }
+        task.resume()
+        semaphore.wait()
+`)
+})
+
+</script>
+</body>
+</html>

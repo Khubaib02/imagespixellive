@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OCR Reader</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+                <!-- updated desc,keyword -->
+    <meta name="description" content="OCR (Optical Character Recognition) reads text from images and documents, transforming them into digital text. It's an invaluable tool for quickly digitizing printed material.">
+
+    <meta name="keywords" content="Optical Character Recognition,Document Scanning, Text Extraction, Image to Text Conversion,Automated Data Entry,Document Conversion,Automated Form Processing,ocr,OCR Reader,reader,OCR Reader free,OCR Reader download,OCR Reader windows,OCR Reader free, OCR converter">
+
+    <meta name="author" content="Kaleem Waheed">
+
+    <script type="application/ld+json">
+      {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "Images Pixel",
+        "url" : "http://www.imagespixel.com/"
+      }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="./css2.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+    crossorigin="anonymous"></script>
+</head>
+<style>
+    input[name="myfile[]"] {
+    display: none;
+}
+.overlay{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        /* background: rgba(255,255,255,0.8) url("https://raw.githubusercontent.com/projectz-tayyab/photo_app/main/loader.gif") center no-repeat;*/
+        background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+    }
+   /* body{
+        text-align: center;
+    } */
+    /* Turn off scrollbar when body element has the loading class */
+    body.loading{
+        overflow: hidden;
+    }
+    /* Make spinner image visible when body element has the loading class */
+    body.loading .overlay{
+        display: block;
+    }
+
+    /*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #B06AB3;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 15px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 5px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  /* user-select: none; */
+  border-radius: 0.375rem;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #B06AB3;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-radius: 0.375rem;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.loader_div{
+      background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+      position: absolute;
+      z-index: 20000;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+<body>
+  <div class="overlay"></div>
+
+    <div id="navbar"></div>
+
+    <!-- new input -->
+      <section id="tool-section">
+        <div class="container">
+            <h1 class="h3 mb-0 text-center text-blue-5">Free Online OCR: Text conversion from pictures and PDF</h1>
+            <p class="mb-4 mb-md-8 text-center text-grey-5 font-weight-light">
+              Fast and accurate OCR reader for extracting text from images and pdf</p>
+      
+            <div id="file-uploader-tool" class="row justify-content-center px-2 px-sm-0" data-max-files="5" data-max-upload-size="50" data-max-largest-upload-size="2048" data-fs-limits-enabled="1" data-fs-free-limit-warnings="1" data-cloud-picker-enabled="1" data-focus-tool-on-mobile="1">
+              <div class="position-relative">
+                <div id="loader_div"></div>
+                <div class="uploader-tool col-lg-10 flex-md-row justify-content-center max-w-1000 card shadow py-5">
+          <!-- <div class="lline"></div> -->
+          <div class="llline"></div>
+          <div id="step-1" class="step active position-relative col-md-4 d-flex flex-column align-items-center px-6 px-md-0 pl-md-5">
+              <div class="circle pulse mt-3 mb-3"></div>
+            <h6 class="step-number-mobile d-block text-grey-4 text-center">Step 1 - Please select files </h6>
+            <input id="image_upload" name="file" type="file" accept=".png, .jpg, .pdf" class="d-none">
+            <div class="btn-group btn-block" style="width: 274px;margin-top: 7px;">
+                <button id="btn-input-file" style="padding: 10px 20px;" class="btn px-5 btn-success" onclick="document.getElementById('image_upload').click();">
+                    <span class="text-center"></span>Choose Files</button>
+            </div>
+            <p id="selected_count" class="text-muted small pt-2 m-0"></p>
+          </div>
+          
+          <div id="step-2" class="step col-md-4 d-flex flex-column align-items-center my-12 my-md-0 px-6 px-md-10">
+            <div class="circle  pulse1 mt-3 mb-3"></div>
+            <h6 class="step-number-mobile d-block text-grey-4 text-center">Step 2 - Convert your files to </h6>
+            <select id="option_val" class="form-control form-control-lg text-center" style="width: 274px;margin-top: 5px;">
+                <option value="">-- Select Language --</option>
+                <option value="eng">English</option>
+                <option value="heb">Hebrew</option>
+                <option value="chi_sim">Chinese - Simplified</option>
+                <option value="chi_tra">Chinese - Traditional</option>
+                <option value="ara">Arabic</option>
+                <option value="deu">German</option>
+                <option value="fra">French</option>
+                <option value="hin">Hindi</option>
+                <option value="urd">Urdu</option>
+                <option value="jpn">Japanese</option>
+                <option value="afr" disabled>Afrikaans (Paid Version)</option>
+                <option value="amh" disabled>Amharic (Paid Version)</option>
+                <option value="asm" disabled>Assamese (Paid Version)</option>
+                <option value="aze" disabled>Azerbaijani (Paid Version)</option>
+                <option value="aze_cyrl" disabled>Azerbaijani - Cyrilic (Paid Version)</option>
+                <option value="bel" disabled>Belarusian (Paid Version)</option>
+                <option value="ben" disabled>Bengali (Paid Version)</option>
+                <option value="bod" disabled>Tibetan (Paid Version)</option>
+                <option value="bos" disabled>Bosnian (Paid Version)</option>
+                <option value="bre" disabled>Breton (Paid Version)</option>
+                <option value="bul" disabled>Bulgarian (Paid Version)</option>
+                <option value="cat" disabled>Catalan; Valencian (Paid Version)</option>
+                <option value="ceb" disabled>Cebuano (Paid Version)</option>
+                <option value="ces" disabled>Czech (Paid Version)</option>
+                <option value="chr" disabled>Cherokee (Paid Version)</option>
+                <option value="cos" disabled>Corsican (Paid Version)</option>
+                <option value="cym" disabled>Welsh (Paid Version)</option>
+                <option value="dan" disabled>Danish (Paid Version)</option>
+                <option value="dan_frak" disabled>Danish - Fraktur (contrib) (Paid Version)</option>
+                <option value="deu_frak" disabled>German - Fraktur (contrib) (Paid Version)</option>
+                <option value="dzo" disabled>Dzongkha (Paid Version)</option>
+                <option value="ell" disabled>Greek, Modern (1453-) (Paid Version)</option>
+                <option value="enm" disabled>English, Middle (1100-1500) (Paid Version)</option>
+                <option value="epo" disabled>Esperanto (Paid Version)</option>
+                <option value="equ" disabled>Math / equation detection module (Paid Version)</option>
+                <option value="est" disabled>Estonian (Paid Version)</option>
+                <option value="eus" disabled>Basque (Paid Version)</option>
+                <option value="fao" disabled>Faroese (Paid Version)</option>
+                <option value="fas" disabled>Persian (Paid Version)</option>
+                <option value="fil" disabled>Filipino (old - Tagalog) (Paid Version)</option>
+                <option value="fin" disabled>Finnish (Paid Version)</option>
+                <option value="frm" disabled>French, Middle (ca.1400-1600) (Paid Version)</option>
+                <option value="fry" disabled>Western Frisian (Paid Version)</option>
+                <option value="gla" disabled>Scottish Gaelic (Paid Version)</option>
+                <option value="gle" disabled>Irish (Paid Version)</option>
+                <option value="glg" disabled>Galician (Paid Version)</option>
+                <option value="grc" disabled>Greek, Ancient (to 1453) (contrib) (Paid Version)</option>
+                <option value="guj" disabled>Gujarati</option>
+                <option value="hat" disabled>Haitian; Haitian Creole (Paid Version)</option>
+                <option value="hrv" disabled>Croatian (Paid Version)</option>
+                <option value="hun" disabled>Hungarian (Paid Version)</option>
+                <option value="hye" disabled>Armenian (Paid Version)</option>
+                <option value="iku" disabled>Inuktitut (Paid Version)</option>
+                <option value="ind" disabled>Indonesian (Paid Version)</option>
+                <option value="isl" disabled>Icelandic (Paid Version)</option>
+                <option value="ita" disabled>Italian (Paid Version)</option>
+                <option value="ita_old" disabled>Italian - Old (Paid Version)</option>
+                <option value="jav" disabled>Javanese (Paid Version)</option>
+                <option value="kan" disabled>Kannada (Paid Version)</option>
+                <option value="kat" disabled>Georgian (Paid Version)</option>
+                <option value="kat_old" disabled>Georgian - Old (Paid Version)</option>
+                <option value="kaz" disabled>Kazakh (Paid Version)</option>
+                <option value="khm" disabled>Central Khmer (Paid Version)</option>
+                <option value="kir" disabled>Kirghiz; Kyrgyz (Paid Version)</option>
+                <option value="kmr" disabled>Kurmanji (Kurdish - Latin Script) (Paid Version)</option>
+                <option value="kor" disabled>Korean</option>
+                <option value="kor_vert" disabled>Korean (vertical) (Paid Version)</option>
+                <option value="kur" disabled>Kurdish (Arabic Script) (Paid Version)</option>
+                <option value="lao" disabled>Lao (Paid Version)</option>
+                <option value="lat" disabled>Latin (Paid Version)</option>
+                <option value="lav" disabled>Latvian (Paid Version)</option>
+                <option value="lit" disabled>Lithuanian (Paid Version)</option>
+                <option value="ltz" disabled>Luxembourgish (Paid Version)</option>
+                <option value="mal" disabled>Malayalam (Paid Version)</option>
+                <option value="mar" disabled>Marathi (Paid Version)</option>
+                <option value="mkd" disabled>Macedonian (Paid Version)</option>
+                <option value="mlt" disabled>Maltese (Paid Version)</option>
+                <option value="mon" disabled>Mongolian (Paid Version)</option>
+                <option value="mri" disabled>Maori (Paid Version)</option>
+                <option value="msa" disabled>Malay (Paid Version)</option>
+                <option value="mya" disabled>Burmese (Paid Version)</option>
+                <option value="nld" disabled>Dutch; Flemish (Paid Version)</option>
+                <option value="nep" disabled>Nepali (Paid Version)</option>
+                <option value="nor" disabled>Norwegian (Paid Version)</option>
+                <option value="oci" disabled>Occitan (post 1500) (Paid Version)</option>
+                <option value="ori" disabled>Oriya (Paid Version)</option>
+                <option value="osd" disabled>Orientation and script detection module (Paid Version)</option>
+                <option value="pan">Panjabi; Punjabi (Paid Version)</option>
+                <option value="pol" disabled>Polish (Paid Version)</option>
+                <option value="por" disabled>Portuguese (Paid Version)</option>
+                <option value="pus" disabled>Pushto; Pashto (Paid Version)</option>
+                <option value="que" disabled>Quechua (Paid Version)</option>
+                <option value="ron" disabled>Romanian; Moldavian; Moldovan (Paid Version)</option>
+                <option value="rus" disabled>Russian (Paid Version)</option>
+                <option value="san" disabled>Sanskrit (Paid Version)</option>
+                <option value="sin" disabled>Sinhala; Sinhalese (Paid Version)</option>
+                <option value="slk" disabled>Slovak (Paid Version)</option>
+                <option value="slk_frak" disabled>Slovak - Fraktur (contrib) (Paid Version)</option>
+                <option value="slv" disabled>Slovenian (Paid Version)</option>
+                <option value="snd" disabled>Sindhi (Paid Version)</option>
+                <option value="spa" disabled>Spanish; Castilian (Paid Version)</option>
+                <option value="spa_old" disabled>Spanish; Castilian - Old (Paid Version)</option>
+                <option value="sqi" disabled>Albanian (Paid Version)</option>
+                <option value="srp" disabled>Serbian (Paid Version)</option>
+                <option value="srp_latn" disabled>Serbian - Latin (Paid Version)</option>
+                <option value="sun" disabled>Sundanese (Paid Version)</option>
+                <option value="swa" disabled>Swahili (Paid Version)</option>
+                <option value="swe" disabled>Swedish (Paid Version)</option>
+                <option value="syr" disabled>Syriac (Paid Version)</option>
+                <option value="tam" disabled>Tamil (Paid Version)</option>
+                <option value="tat" disabled>Tatar (Paid Version)</option>
+                <option value="tel" disabled>Telugu (Paid Version)</option>
+                <option value="tgk" disabled>Tajik (Paid Version)</option>
+                <option value="tgl" disabled>Tagalog (new - Filipino) (Paid Version)</option>
+                <option value="tha" disabled>Thai (Paid Version)</option>
+                <option value="tir" disabled>Tigrinya (Paid Version)</option>
+                <option value="ton" disabled>Tonga (Paid Version)</option>
+                <option value="tur" disabled>Turkish (Paid Version)</option>
+                <option value="uig" disabled>Uighur; Uyghur (Paid Version)</option>
+                <option value="ukr" disabled>Ukrainian (Paid Version)</option>
+                <option value="uzb" disabled>Uzbek (Paid Version)</option>
+                <option value="uzb_cyrl" disabled>Uzbek - Cyrilic (Paid Version)</option>
+                <option value="vie" disabled>Vietnamese (Paid Version)</option>
+                <option value="yid" disabled>Yiddish (Paid Version)</option>
+                <option value="yor" disabled>Yoruba (Paid Version)</option>
+              </select>
+            </select>
+          </div>
+          
+          <div id="step-3" class="step  col-md-4 d-flex flex-column align-items-center px-6 px-md-0 pr-md-5">
+            <div class="circle  pulse2 mt-3 mb-3"></div>
+          
+            <h6 class="step-number-mobile d-block text-grey-4 text-center">Step 3 - Start converting</h6>
+          
+            <div class="step-number  d-md-flex align-items-center justify-content-center h3 bg-green-accent-3 text-white rounded-circle mb-8"></div>
+          
+            <button id="convert" class="btn btn-success" style="width: 274px; padding: 10px 20px;">Convert Now</button>
+          
+            <!-- <p class="text-muted small pt-2 m-0">(And agree to our <a href="./terms_of_use.html" target="_blank">Terms</a>)</p> -->
+          </div>
+          </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col container mt-5 mb-5 d-flex flex-column align-items-center" id="results_div">
+      
+        </div>
+      </div>
+      </div>
+      </div>            </div>
+      </section>
+       <!-- content for the page -->
+       <section>
+        <div class="container">
+          <div class="row mt-5 text-center">
+            <div class="col-md-12">
+              <h2>About Images Pixel</h2>
+              <div>
+                Are you looking for an effective way to extract data from pdf and images? Look no further than Images Pixel! Images Pixel is the leading solution for quickly and accurately extracting data from pdf and image files. Our powerful technology uses advanced algorithms to accurately extract text, tables, and other data from pdfs and images, saving you time and effort. With our user-friendly interface, you can extract data from pdfs and images quickly and accurately, without the need for manual entry or complicated software.With Images Pixel, you’ll be able to quickly and accurately extract data from pdfs and images, saving you time and effort. We offer unparalleled accuracy and efficiency, allowing you to focus on more important tasks. Our advanced algorithms can accurately extract text, tables, and other data from pdfs and images, allowing you to quickly and easily access the data you need.Images Pixel is the perfect solution for extracting data from pdfs and images. Our powerful technology, user-friendly interface, and unparalleled accuracy make it the go-to solution for extracting data from pdfs and images. We’re committed to providing the best service and solutions to our customers, ensuring that you get the data you need quickly and accurately.              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ <section class="mt-5">
+  <div class="container text-center">
+    <h2>How OCR Reader API Works?</h2>
+    <p>OCR (Optical Character Recognition) Reader API is a technology that allows users to convert scanned documents, images, and PDFs into searchable and editable text. It uses advanced algorithms to recognize characters within an image, and then translates them into machine-readable text. This makes it ideal for applications such as document scanning and archiving, searchable PDFs, and automatic form processing and data extraction. OCR Reader API is fast and accurate, and can be used to convert any type of document into text.With OCR reader api,you can convert jpeg to text,jpg to text,png to text,pdf to text</p>
+  </div>
+</section>
+
+<section>
+  <div class="container  pt-3" style="width:70%">
+    <div class="row mb-3 mt-3">
+      <div class="col-md-4 col-sm-12">
+        <div class="grid-div">
+            <div class="logo-icon"><img alt="" src="images/1122.png"></div>
+            <div class="logo-heading">How To get text from OCR reader Api?</div>
+            <div class="p-text">
+              Click the <b>"Choose file"</b> button to upload the file you want to convert and then select the  language <b>"Select Language"</b> button once you complete the process then press the <b>"Convert Now"</b> button. Then wait for our software to do its magic.
+            </div>
+        </div>
+      </div>
+       <div class="col-md-4  col-sm-12">
+         <div class="grid-div">
+        <div class="logo-icon"><img alt="" src="images/1.png"></div>
+        <div class="logo-heading">How To Download text File?</div>
+        <div class="p-text">
+          After a few seconds of uploading your file, your file will appear below.Click the <b>"Download"</b> button to download your file
+        </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="grid-div">
+            <div class="logo-icon"><img alt="" src="images/1122.png"></div>
+            <div class="logo-heading">Things to rember</div>
+            <div class="p-text">Make Sure Your <b>Input file language</b> and the<b> language you select</b> should be <b>same</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3 mt-3">
+      <div class="col-md-4 col-sm-12">
+        <div class="grid-div">
+       <div class="logo-icon"><img alt="" src="images/3.png"></div>
+       <div class="logo-heading">Secure online conversion</div>
+       <div class="p-text">
+        Our OCR reader Api adopts SSL connections to guarantee maximum security for your files. We delete all documents one hour after the conversion.
+       </div>
+       </div>
+     </div>
+    </div>
+</section>
+          <div id="footer"></div>
+      <!-- new functionality below -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  function copy() {
+         var $temp = $("<input>");
+         $("body").append($temp);
+         $temp.val($('#image_upload1').text()).select();
+         document.execCommand("copy");
+         $temp.remove();
+        $.notify("Text copied to clipboard", "success");
+      }
+</script>
+<script type="module">
+  $(document).ready(function(){
+    $("#navbar").load("./components/navbar.html");
+    $("#footer").load("./components/footer.html");
+})
+  import {url_light, url_heavy} from './url.js';
+  var totalfiles = document.getElementById('image_upload').files.length;
+      if(totalfiles===0){
+        $('#selected_count').text('No files selected')
+      }
+  function download_result(folder_path){
+  window.open(folder_path)
+  // $('#results_div').empty('');
+  $('.lline').css('width','0');
+}
+// copy to clipboard func
+
+
+  document.getElementById("image_upload").onchange = function() {
+    var totalfiles = document.getElementById('image_upload').files.length;
+    var data_uri = $('#image_upload').prop('files')[0];
+    var format = $('#option_val').val();
+    $('#selected_count').text(totalfiles + ' files selected')
+    if(totalfiles>=1){
+      $('.uploader-tool').append('<div class="lline"></div>')
+      $('.lline').css('width','30%')
+      $('.llline').css('width','65%')
+    }
+    else{
+      $.notify("Please select a maximum of 15 files", "error");
+    }
+    }
+    document.getElementById("option_val").onchange=()=>{
+      var format = $('#option_val').find(":selected").val();
+      if(format !=0){
+        $('.lline').css('width','62%')
+      $('.lline').css('transform','translate(30%, 87px)')
+      $('.llline').css('width','62%')
+    }
+    } 
+  document.getElementById("convert").onclick = function() {
+    $('#results_div').empty('');
+    var form_data = new FormData();
+    var totalfiles = document.getElementById('image_upload').files.length;
+  if (totalfiles > 15){
+    $.notify("Please select a maximum of 15 files", "error");
+        return false;
+  }
+  for (var index = 0; index < totalfiles; index++) {
+    form_data.append("file", document.getElementById('image_upload').files[index]);
+  }
+    var format = $('#option_val').find(":selected").val();
+    var validExtensions = ['png','jpg','pdf', 'jpeg'];
+    var data_uri = $('#image_upload').prop('files')[0];
+    if (data_uri==undefined){
+        $.notify("Please select any .png .jpg .pdf file", "error");
+        return false;
+    }
+
+    if (format==0){
+        $.notify("Please select Language", "error");
+        return false;
+    }
+
+
+    var fileName = data_uri.name;
+            var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
+            fileNameExt = fileNameExt.toLowerCase();
+            if ($.inArray(fileNameExt, validExtensions) == -1){
+                $.notify("Invalid file type", "error");
+               return false;
+            }
+            else {
+                $.notify("Uploaded Successfully", "success");
+            }
+            
+         form_data.append('ocr', format)
+         var url = url_light + '/ocr_reader/'
+         $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+              $("#loader_div").addClass("loader_div");
+                },
+             success: function(data) {
+              $('#image_upload').val('');
+              $('#selected_count').text('');
+              $('#results_div').empty('');
+                 var status = data['status']
+                if (status=='success'){
+                 var folder_path = data['zip_file_url']
+                 var text = data['text']
+                 var a=''
+                a+='<div class="box1">'
+                a+='<textarea name="text" id="image_upload1" cols="30" rows="10" class="pt-3 px-3 textareagen">'+text+'</textarea>'
+                a+='</div>'
+                a+='<div class="box2 mt-3">'
+                a+='<a class="download_button" href="'+folder_path+'"><button class="btn btn-success">Download Text File</button></a>'
+                a+='<button class="btn btn-success" style=" margin: 5px;" onclick="copy()">Copy to Clipboard</button>'
+                a+='</div>'
+                  $('#results_div').append(a);
+                }
+                if (status=='failed'){
+                        window.open('./error.html')
+                }
+             },
+             complete: function (data) {
+              $("#loader_div").removeClass("loader_div");
+                },
+         });
+};
+$(".drp").click(function(e){
+   e.stopPropagation();
+})
+</script>
+
+<script>
+  var x, i, j, l, ll, selElmnt, a, b, c;
+  /*look for any elements with the class "custom-select":*/
+  x = document.getElementsByClassName("custom-select");
+  l = x.length;
+  for (i = 0; i < l; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+    ll = selElmnt.length;
+    /*for each element, create a new DIV that will act as the selected item:*/
+    a = document.createElement("DIV");
+    a.setAttribute("class", "select-selected");
+    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(a);
+    /*for each element, create a new DIV that will contain the option list:*/
+    b = document.createElement("DIV");
+    b.setAttribute("class", "select-items select-hide");
+    for (j = 1; j < ll; j++) {
+      /*for each option in the original select element,
+      create a new DIV that will act as an option item:*/
+      c = document.createElement("DIV");
+      c.innerHTML = selElmnt.options[j].innerHTML;
+      c.addEventListener("click", function(e) {
+          /*when an item is clicked, update the original select box,
+          and the selected item:*/
+          var y, i, k, s, h, sl, yl;
+          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          sl = s.length;
+          h = this.parentNode.previousSibling;
+          for (i = 0; i < sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              yl = y.length;
+              for (k = 0; k < yl; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          h.click();
+      });
+      b.appendChild(c);
+    }
+    x[i].appendChild(b);
+    a.addEventListener("click", function(e) {
+        /*when the select box is clicked, close any other select boxes,
+        and open/close the current select box:*/
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.toggle("select-arrow-active");
+      });
+  }
+  function closeAllSelect(elmnt) {
+    /*a function that will close all select boxes in the document,
+    except the current select box:*/
+    var x, y, i, xl, yl, arrNo = [];
+    x = document.getElementsByClassName("select-items");
+    y = document.getElementsByClassName("select-selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i < yl; i++) {
+      if (elmnt == y[i]) {
+        arrNo.push(i)
+      } else {
+        y[i].classList.remove("select-arrow-active");
+      }
+    }
+    for (i = 0; i < xl; i++) {
+      if (arrNo.indexOf(i)) {
+        x[i].classList.add("select-hide");
+      }
+    }
+  }
+  /*if the user clicks anywhere outside the select box,
+  then close all select boxes:*/
+  document.addEventListener("click", closeAllSelect);
+  </script>
+  </body>
+  </html>

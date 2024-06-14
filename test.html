@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>content gen</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <!-- updated desc,keyword -->
+    <meta name="description" content="This is a free PNG To PDF tool that lets you convert your PNG file into JPG for absolutely free!">
+    
+    <meta name="keywords" content="png to pdf,pdf to png, converter,downloader,converter,installer,resizer,free,download convert png to pdf for free,convert jpg to png for free">
+
+    <meta name="author" content="Kaleem Waheed">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="./css2.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+    crossorigin="anonymous"></script>
+</head>
+<style>
+    input[name="myfile[]"] {
+    display: none;
+}
+.overlay{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        /* background: rgba(255,255,255,0.8) url("https://raw.githubusercontent.com/projectz-tayyab/photo_app/main/loader.gif") center no-repeat;*/
+        background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+    }
+   /* body{
+        text-align: center;
+    } */
+    /* Turn off scrollbar when body element has the loading class */
+    body.loading{
+        overflow: hidden;
+    }
+    /* Make spinner image visible when body element has the loading class */
+    body.loading .overlay{
+        display: block;
+    }
+</style>
+<body>
+  <div class="overlay"></div>
+ <!-- Nav Start -->
+ <nav class="navbar test_nav navbar-expand-sm navbar-dark">
+  <div class="container">
+    <a class="navbar-brand text-white" href="./index.html"><img class="logo-img" src="images/ImagePixel__1_-removebg-preview.png"></a>
+    <button class="navbar-toggler clrred" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon clrblk"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav me-auto test_color">
+         <li class="nav-item">
+          <a class="nav-link" style="color: white !important;font-size: 16px !important;
+          " href="./webp-converter.html"  rel="noopener noreferrer">WEBP converter</a>
+        </li>
+         
+         <li class="nav-item">
+          <a class="nav-link"  style="color: white !important;font-size: 16px !important;" href="./heic-converter.html"  rel="noopener noreferrer">HEIC converter</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link"  style="color: white !important;font-size: 16px !important;" href="./image-background-removal.html"  rel="noopener noreferrer">Background Removal</a>
+        </li>
+        
+         <li class="nav-item">
+          <a class="nav-link"  style="color: white !important;"font-size: 16px !important; href="https://ocrconverters.com/types.html"  rel="noopener noreferrer">OCR</a>
+        </li>
+         
+        <div class="nav-item ">
+          <a class="nav-link dropdown-toggle"  style="color: white !important;" href="#" role="button" data-bs-toggle="dropdown">Tools</a>
+          <div class="dropdown-menu drp" style="width: calc(100% - 80px);margin:0px 40px !important;">
+            <div class="row" style="font-size: 10px !important;">
+                <!-- col 1 -->
+              <div class="col-md-3  col-sm-12">
+                <ul class="tools" style="list-style: none;">
+                  <li><span>Convert & Compress</span></li>
+                  <li><a href="./youtube_to_mp3_converter.html"><img src="./images/icons8-youtube-96.png" class="imgicon">YT to mp3 converter</a></li>
+                  <li><a href="./youtube_to_mp4_converter.html"><img src="./images/icons8-youtube-96.png" class="imgicon">YT to mp4 converter</a></li>
+                  <li><a href="./youtube_to_text_converter.html"><img src="./images/icons8-youtube-96.png" class="imgicon">YT to text converter</a></li>
+                  <li><a href="./text-to-summary_converter.html"><img src="./images/compress-pdf.PNG" class="imgicon">Text to Summary converter</a></li>
+                  <li><a href="./image-background-removal.html"><img src="./images/icons8-remove-96.png" class="imgicon">Background Removal</a></li>
+                  <li><a href="./image-pixel-picker.html"><img src="./images/icons8-color-dropper-96.png" class="imgicon">Color Picker</a></li>
+                  <li><a href="./compress-pdf.html"><img src="./images/icons8-pdf-96 (1).png" class="imgicon">Compress PDF</a></li>
+                  <li><a href="./compress-image.html"><img src="./images/icons8-full-image-96.png" class="imgicon">Compress Image</a></li>
+                  <li><a href="./img-to-svg.html"><img src="./images/icons8-image-100.png" class="imgicon">Image-to-SVG</a></li>
+                  <li><a href="./images-to-word.html"><img src="./images/icons8-images-96.png" class="imgicon">Image-to-Word</a></li>
+                  <li><a href="./audio-to-text.html"><img src="./images/icons8-audio-96.png" class="imgicon">Audio-to-text</a></li>
+
+                </ul>
+              </div>
+                  <!-- col 2 -->
+              <div class="col-md-2  col-sm-12">
+                <ul  class="tools" style="list-style: none;">
+                  <li><span>Split & Merge</span></li>
+                  <li><a href="./split-pdf.html"><img src="./images/icons8-split-96.png" class="imgicon">Split PDF</a></li>
+                  <li><a href="./merge-pdf.html"><img src="./images/icons8-merge-96.png" class="imgicon">Merge PDF</a></li>
+                </ul>
+              </div>
+
+              <div class="col-md-2  col-sm-12">
+                <ul  class="tools" style="list-style: none;">
+                  <li><span>Convert from Image</span></li>
+                  <li><a href="./image-to-grayscale-converter.html"><img src="./images/icons8-split-96.png" class="imgicon">Convert to Sketch/Grayscale/Cartoon</a></li>
+                </ul>
+              </div>
+                  <!-- col 3 -->
+              
+                  <!-- col 4 -->
+                      <div class="col-md-2  col-sm-12">
+                        <ul  class="tools" style="list-style: none;">
+                          <li><span>Convert from PDF</span></li>
+                          <li><a href="./pdf-to-word.html" ><img src="./images/icons8-microsoft-word-96.png" class="imgicon">PDF to Word</a></li>
+                          <li><a href="./pdf-to-image.html"  ><img src="./images/icons8-pdf-96.png" class="imgicon">PDF to Image</a></li>
+                        </ul>
+                      </div>
+                  <!-- col 5 -->
+                      <div class="col-md-2  col-sm-12">
+                        <ul class="tools" style="list-style: none;">
+                          <li><span>Convert to PDF</span></li>
+                          <li><a href="./images-to-pdf.html"><img src="./images/icons8-image-100.png" class="imgicon">Image to PDF</a></li>
+                          <li><a href="./html-to-pdf.html"><img src="./images/icons8-html-filetype-96.png" class="imgicon">HTML to PDF</a></li>
+                        </ul>
+                      </div>
+                       <!-- col 6 -->
+                       <div class="col-md-3  col-sm-12">
+                        <ul class="tools" style="list-style: none;">
+                          <li><span>Convert to jpg/png</span></li>
+                          <li><a href="./webp-converter.html"><img src="./images/icons8-webp-100 (1).png" class="imgicon">webp converter</a></li>
+                          <li><a href="./heic-converter.html"><img src="./images/icons8-heic-filetype-96.png"  class="imgicon">heic converter</a></li>
+                          <li><a href="./avif_converter.html"><img src="./images/icons8-avi-96.png" class="imgicon">avif converter</a></li>
+                          <li><a href="./png-to-jpg.html"><img src="./images/icons8-image-100.png" class="imgicon">png to jpg</a></li>
+                        </ul>
+                      </div>
+                        <!-- col 6 -->
+                        
+                        <!-- col 6 -->
+                        <div class="col-md-2  col-sm-12">
+                          <ul class="tools" style="list-style: none;">
+                            <li><span>Get Answers From</span></li>
+                            <li><a href="./paragrapgh-to-qa.html"><img src="./images/icons8-paragraph-96.png" class="imgicon">Paragrapgh</a></li>
+                            <li><a href="./youtube_link-to-qa.html"><img src="./images/icons8-dynamic-links-96.png" class="imgicon">YouTube link</a></li>
+                            <li><a href="./text_file-to-qa.html"><img src="./images/icons8-txt-96.png" class="imgicon">Text file</a></li>
+                            <li><a href="./mp3-to-qa.html"><img src="./images/icons8-mp3-64.png" class="imgicon">MP3 file</a></li>
+                          </ul>
+                        </div>
+            </div>
+          </div>
+        </div>
+      </ul>
+      <ul class="navbar-nav" style="display: flex; gap: 10px;">
+          <!-- previous below -->
+      
+        <!-- below new addition -->
+        <li class="nav-item"><a href="./pricing-table.html" class="btn bbtn-2">API Pricing</a></li> 
+        <li class="nav-item"><a href="https://www.kztechsol.com/contact.html" rel="noopener noreferrer" class="btn btn-primary bbtn-2">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Nav End -->
+<section>
+    <div class="container mt-5">
+        <h1>GPT-3 Blog/Content Generator</h1>
+        <form>
+            <div class="d-flex gap-5 flex-wrap">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Enter Your Open-AI Key</label>
+                  <input id="key" autocomplete="off" value="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" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your Open-AI Key with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <textarea id="prompt" value="write about pakistan" placeholder="Enter Your Prompt here..." id="" cols="30" rows="10" class="promptt p-5"></textarea>
+                  <!-- <label for="exampleInputPassword1" class="form-label">Prompt</label>
+                  <input id="prompt" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Your prompt here..."> -->
+                </div>
+                <div class="mb-3">
+                    <label for="tentacles">Word Token Length:</label>
+                    <input type="number" id="tentacles" name="tentacles" value="200" min="200" max="2000">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" id="convert">Generate</button>
+          </form>
+    </div>
+</section>
+<!-- <section class="container mt-5">
+    <textarea name="text" id="image_upload" placeholder="AI BOT at your service....." cols="30" rows="10" class="pt-3 px-3 textareagen"></textarea>
+</section> -->
+
+<!-- <section class="mt-5">
+    <div class="container">
+        <h4>Download Our API'S</h4>
+        <div class="api_pricing shd mt-3" style="width: 75%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <div class="lang d-flex gap-4 p-2 mb-2" style="border-bottom: 1px solid black;">
+                <h6 id="c"><img src="./images/icons8-c-sharp-logo-50.png" alt="C#" style="width: 30px;height: 30px;"></h6>
+                <h6 id="java"><img src="./images/icons8-java-48.png" alt="java" style="width: 30px;height: 30px;"></h6>
+                <h6 id="react"><img src="./images/icons8-react-30.png" alt="react" style="width: 30px;height: 30px;"></h6>
+                <h6 id="php"><img src="./images/icons8-php-logo-50.png" alt="php" style="width: 30px;height: 30px;"></h6>
+                <h6 id="swift"><img src="./images/icons8-swift-100.png" alt="swift" style="width: 30px;height: 30px;"></h6>
+            </div>
+            <pre>
+                <code>
+                  body {
+                    color: yellow;
+                    font-size: 16px;
+                    line-height: 1.5;
+                  }
+                </code>
+              </pre>
+        </div>
+    </div>
+</section> -->
+<!-- Footer Start -->
+<footer class="footer mt-3 pt-5" id="footer">
+    <div class="contain">
+    <div class="col">
+      <h1>Technology</h1>
+      <ul>
+        <li>Data Analytics / Data Science</li>
+        <li>Computer Vision/ Machine Learning</li>
+        <li>Natural Language Processing</li>
+        <li>Cloud Based ERP Service</li>
+        <li>Web Development / Databases</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h1>Contact Us</h1>
+      <ul>
+        <li>St. No. 23, Nayyab Park Daroghawala, Lahore, Pakistan</li>
+        <li>+92-321-6795032</li>
+        <li>support@kztechsol.com</li>
+        <li>(042) 36530300</li>
+        <li>kztechsol.com</li>
+        <li>kztechsol.net</li>
+      </ul>
+    </div>
+    <div class="co">
+      <h1>Our Aims</h1>
+       <p>In this time technology is going to be the most essential part of the fast growing industries. So business have a thrust of technology to compete the progressing market.None of this would be possible without brilliant minds and experience.</p>
+    </div>
+    <div class="col">
+      <h1>Info</h1>
+      <ul>
+        <li><a href="./about.html" class="list_new">About Us</a></li>
+        <li><a href="./terms_of_use.html" class="list_new">Term of use</a></li>
+        <li><a href="./disclaimer.html" class="list_new">Disclaimer</a></li>
+        <li><a href="./contact.html" class="list_new">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer_bottom contain">
+    <div class="contain">
+        <p>© Copyright 2020-22 <a href="https://www.kztechsol.com/" rel="noopener noreferrer">kztechsol.com.</a> All Rights Reserved</p>
+    </div>
+</div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  document.getElementById("convert").onclick = function() {
+  var key=$('#key').val();
+  var prompt=$('#prompt').val();
+  var tentacles=$('#tentacles').val();
+  console.log(key,prompt,tentacles)
+    debugger
+    var form_data = new FormData();
+    form_data.append("api_key", key);
+    form_data.append("prompt", prompt);
+    form_data.append("max_tokens", tentacles);
+
+        //  var url =url_heavy+'api_blog_generator/'
+        var url = 'http://192.168.10.2:8001/api_blog_generator/'
+
+         $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+                $("body").addClass("loading");
+                },
+             success: function(data) {
+                 debugger;
+              console.log(data)
+                 var status = data['status']
+             },
+         });
+};
+
+</script>
+</body>
+</html>

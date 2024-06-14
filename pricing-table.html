@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pricing Table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- updated desc,keyword -->
+    <meta name="description" content="Get the latest price for our services">
+    <meta name="keywords" content="pricing table,price table,price comparison table,pricing table html	,">
+
+    <meta name="author" content="Kaleem Waheed">
+
+    <script type="application/ld+json">
+      {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "Images Pixel",
+        "url" : "http://www.imagespixel.com/"
+      }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="./css2.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+    crossorigin="anonymous"></script>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    input[name="myfile"] {
+    display: none;
+}
+.overlay{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        /* background: rgba(255,255,255,0.8) url("https://raw.githubusercontent.com/projectz-tayyab/photo_app/main/loader.gif") center no-repeat;*/
+        background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+    }
+   /* body{
+        text-align: center;
+    } */
+    /* Turn off scrollbar when body element has the loading class */
+    body.loading{
+        overflow: hidden;
+    }
+    /* Make spinner image visible when body element has the loading class */
+    body.loading .overlay{
+        display: block;
+    }
+</style>
+<body>
+ 
+<div id="navbar"></div>
+  <!-- pricing table -->
+  <section class="pricing py-5">
+    <div class="container">
+        <h1 class="text-center my-5">Our Pricing & Plans</h1>
+      <div class="row d-sm-flex justify-content-center" style="display: grid; place-items: center;">
+        <!-- Basic Plan -->
+        <div class="col-lg-4 col-sm-12">
+          <div class="card mb-5 mb-lg-0 custom_bg">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Basic Plan</h5>
+              <h6 class="card-price text-center">$10<span class="period">/month</span></h6>
+              <hr>
+              <ul class="fa-ul">
+                <li><span class="fa-li"><i class="fas fa-check"></i></span> 500 requests per day</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Fixed monthly pricing</li>
+                <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span> New Template Charges apply
+                </li> -->
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Cancel anytime</li>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-cancel"></i></span> Slack Support</li>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-cancel"></i></span>Business Continuity Planning</li>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-cancel"></i></span>custom Converter Charges apply</li>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-cancel"></i></span> 1-year commitment</li>
+              </ul>
+              <div class="d-grid">
+                <a href="https://www.kztechsol.com/contact.html" class="btn btn-primary text-uppercase">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Custom Plan -->
+        <div class="col-lg-4 col-sm-12">
+          <div class="card mb-5 mb-lg-0 custom_bg">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Custom Plan</h5>
+              <h6 class="card-price text-center">On Demand</h6>
+              <hr>
+              <ul class="fa-ul">
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong> Unlimited requests per day</strong></li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span> Fixed monthly pricing</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>custom Converter Charges apply</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span> 1-year commitment</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Slack Support</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Business Continuity Planning</li>
+              </ul>
+              <div class="d-grid">
+                <a href="https://www.kztechsol.com/contact.html" class="btn btn-primary text-uppercase">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- pricing table end -->
+  
+     <div id="footer"></div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+     integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <script>
+         $(document).ready(function(){
+         $("#navbar").load("./components/navbar.html");
+         $("#footer").load("./components/footer.html");
+     })
+    $(".drp").click(function(e){
+   e.stopPropagation();
+})
+  </script>
+</body>
+</html>

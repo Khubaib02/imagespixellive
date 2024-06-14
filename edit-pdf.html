@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit Pdf</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <!-- updated desc,keyword -->
+    <meta name="description" content="A robust yet simple to use PDF editor is Edit PDF. It's a professional PDF editor that you may use to create and edit PDF documents, not just a basic PDF reader.">
+    
+    <meta name="keywords" content="Edit pdf,pdf editor free	,online pdf editor,edit pdf online free,adobe pdf editor,downloader,converter">
+
+    <meta name="author" content="Kaleem Waheed">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="./css2.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+    crossorigin="anonymous"></script>
+</head>
+<style>
+    input[name="myfile[]"] {
+    display: none;
+}
+.overlay{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        /* background: rgba(255,255,255,0.8) url("https://raw.githubusercontent.com/projectz-tayyab/photo_app/main/loader.gif") center no-repeat;*/
+        background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+    }
+   /* body{
+        text-align: center;
+    } */
+    /* Turn off scrollbar when body element has the loading class */
+    body.loading{
+        overflow: hidden;
+    }
+    /* Make spinner image visible when body element has the loading class */
+    body.loading .overlay{
+        display: block;
+    }
+
+    .loader_div{
+      background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+      position: absolute;
+      z-index: 20000;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+<body>
+  <div class="overlay"></div>
+ <!-- Nav Start -->
+ <nav class="navbar navbar-expand-sm  navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="./index.html"><img class="logo-img" src="images/ImagePixel__1_-removebg-preview.png" ></a>
+    <button class="navbar-toggler clrred" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon clrblk"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav me-auto">
+         <li class="nav-item">
+          <a class="nav-link" href="./webp-converter.html"  rel="noopener noreferrer">WEBP converter</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="./pdf-to-word.html"  rel="noopener noreferrer">PDF to Word</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="./heic-converter.html"  rel="noopener noreferrer">HEIC converter</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="./image-background-removal.html"  rel="noopener noreferrer">Background Removal</a>
+        </li>
+         <!-- <li class="nav-item">
+          <a class="nav-link" href="./youtube_to_mp3_converter.html"  rel="noopener noreferrer">yt to mp3 converter</a>
+        </li> -->
+         <!-- <li class="nav-item">
+          <a class="nav-link" href="./image-pixel-picker.html" rel="noopener noreferrer">Color Picker</a>
+        </li> -->
+         <!-- <li class="nav-item">
+          <a class="nav-link" href="./images-to-pdf.html" rel="noopener noreferrer">IMG to PDF</a>
+        </li> -->
+         <li class="nav-item">
+          <a class="nav-link" href="https://ocrconverters.com/types.html"  rel="noopener noreferrer">OCR</a>
+        </li>
+        <div class="nav-item ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tools</a>
+          <div class="dropdown-menu w-100 p-3">
+            <div class="row p-4">
+                <!-- col 1 -->
+              <div class="col-md-3  col-sm-12" >
+                <ul class="tools" style="list-style: none;">
+                  <li><span>Convert & Compress</span></li>
+                  <li><a href="./youtube_to_mp3_converter.html"><img src="./images/compress-pdf.PNG" class="imgicon">YT to mp3 converter</a></li>
+                  <li><a href="./youtube_to_text_converter.html"><img src="./images/compress-pdf.PNG" class="imgicon">YT to text converter</a></li>
+                  <li><a href="./text-to-summary_converter.html"><img src="./images/compress-pdf.PNG" class="imgicon">Text to Summary converter</a></li>
+                  <li><a href="./image-background-removal.html"><img src="./images/pdf-converter.PNG" class="imgicon">Background Removal</a></li>
+                  <li><a href="./image-pixel-picker.html"><img src="./images/pdf-scanner.PNG" class="imgicon">Color Picker</a></li>
+                  <!-- <li><a href="./compress-pdf.html"><img src="./images/compress-pdf.PNG" class="imgicon">Compress PDF</a></li> -->
+                  <li><a href="./compress-image.html"><img src="./images/compress-pdf.PNG" class="imgicon">Compress Image</a></li>
+                </ul>
+              </div>
+                  <!-- col 2 -->
+              <div class="col-md-2  col-sm-12">
+                <ul  class="tools" style="list-style: none;">
+                  <li><span>Split & Merge</span></li>
+                  <li><a href="./split-pdf.html"><img src="images/split-pdf.PNG" class="imgicon">Split PDF</a></li>
+                  <li><a href="./merge-pdf.html"><img src="images/merge-pdf.PNG" class="imgicon">Merge PDF</a></li>
+                </ul>  
+              </div>
+                  <!-- col 3 -->
+              <div class="col-md-2  col-sm-12">
+                <ul  class="tools" style="list-style: none;">
+                  <li><span>View & Edit</span></li>
+                  <li><a href="./edit-pdf.html" ><img src="images/edit-pdf.PNG" class="imgicon">Edit PDF</a></li>
+                  <li><a href="./number-pages.html"><img src="./images/pdf-scanner.PNG" class="imgicon">Number Pages</a></li>
+                  <li><a href="./delete-pdf.html"><img src="images/delete-pages-from-pdf.PNG" class="imgicon">Delete PDF Pages</a></li>
+                  <!-- <li><a><img src="images/pdf-reader.PNG" class="imgicon">PDF Reader</a></li> -->
+                  <li><a href="./rotate-pdf.html"><img src="images/rotate-pdf-img.png" class="imgicon">Rotate PDF</a></li>
+                </ul>
+              </div>
+                  <!-- col 4 -->
+                      <div class="col-md-2  col-sm-12">
+                        <ul  class="tools" style="list-style: none;">
+                          <li><span>Convert from PDF</span></li>
+                          <!-- <li><a><img src="images/pdf-to-word.PNG" class="imgicon">PDF to Word</a></li>
+                          <li><a><img src="images/pdf-reader.PNG" class="imgicon">PDF Reader</a></li>
+                          <li><a><img src="images/pdf-to-excel.PNG" class="imgicon">PDF to Excel</a></li>
+                          <li><a><img src="images/pdf-to-ppt.PNG" class="imgicon">PDF to PPT</a></li> -->
+                          <li><a href="./pdf-to-image.html"  ><img src="./images/pdf-scanner.PNG" class="imgicon">PDF to Image</a></li>
+                          <li><a href="./pdf-to-word.html"  ><img src="./images/pdf-scanner.PNG" class="imgicon">PDF to Word</a></li>
+                        </ul>
+                      </div>
+                  <!-- col 5 -->
+                      <div class="col-md-2  col-sm-12">
+                        <ul class="tools" style="list-style: none;">
+                          <li><span>Convert to PDF</span></li>
+                          <!-- <li><a><img src="images/pdf-to-word.PNG" class="imgicon">Word to PDF</a></li>
+                          <li><a><img src="images/pdf-to-excel.PNG" class="imgicon">Excel to PDF</a></li>
+                          <li><a><img src="images/pdf-to-ppt.PNG" class="imgicon">PPT to PDF</a></li> -->
+                          <li><a href="./images-to-pdf.html" ><img src="./images/pdf-scanner.PNG" class="imgicon">Image to PDF</a></li>
+                        </ul>
+                      </div>
+                       <!-- col 6 -->
+                       <div class="col-md-2  col-sm-12">
+                        <ul class="tools" style="list-style: none;">
+                          <li><span>Convert to jpg</span></li>
+                          <li><a href="./webp-converter.html"><img src="./images/pdf-scanner.PNG" class="imgicon">webp to jpg</a></li>
+                          <li><a href="./heic-converter.html"><img src="./images/pdf-scanner.PNG" class="imgicon">heic to jpg</a></li>
+                        </ul>
+                      </div>
+                        <!-- col 6
+                        <div class="col-md-2  col-sm-12">
+                          <ul class="tools" style="list-style: none;">
+                            <li><span>Sign & Security</span></li>
+                            <li><a><img src="./images/pdf-scanner.PNG" class="imgicon">eSign PDF</a></li>
+                            <li><a><img src="./images/pdf-scanner.PNG" class="imgicon">Protect PDF</a></li>
+                          </ul>
+                        </div> -->
+            </div>
+          </div>
+        </div>
+      </ul>
+      <ul class="navbar-nav ">
+          <!-- previous below -->
+      <!--   <li class="nav-item"> <a class="nav-link" href="#">Pricing</a></li>
+        <li class="nav-item"> <a class="nav-link" href="#">Teams</a></li> -->
+        <!-- <li class="nav-item"> <a class="nav-link" href="#">Login</a></li> -->
+        <!-- below new addition -->
+        <li class="nav-item"><a href="https://www.kztechsol.com/contact.html" rel="noopener noreferrer" class="btn btn-primary">Contact Us</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Nav End -->
+
+
+      <section >
+        <div class="container mt-3 mb-5">
+            <div class="d-flex justify-content-center " >
+                  <div class="convert-heading">
+                  <h2 class="pt-5 text-center"><img src="./images/edit-pdf.PNG"class="me-2">Edit PDF</h2>
+                  <h4 class="text-center d-block">Edit your PDF file the way you want without any hassle</h4>
+                  </div>
+            </div>
+          <div class="container  w-75">
+    
+            <div class="file-dropdown-div w-100 " style="background-color:rgb(121, 97, 242);">
+                  <div class="row ">
+                      <!-- <div class="col-6">
+                          <div class="text-center text-white m-4 p-5 pdf-to-jpg-div">
+                            
+                            <img src="images/pdf-image-.png">
+                            <h1 class="pt-3">PDF To JPG</h1>
+                          </div>
+    
+                      </div> -->
+                      <div class="col-12 " style="background-color:#4568DC;">
+                        
+                          <div class="m-4 text-white p-5 text-center choose-file-to-jpg-div" style="display: flex; flex-direction: column; align-items: center;">
+                            <h3>Drop A File</h3>
+    
+                            <div>
+                            <h2>OR</h2>
+                            </div>
+    
+                          <div>
+                              <label style="background-color: #B06AB3; border: none;" class="btn btn-danger" id="input" for="image_upload">Choose a File</label>
+                              <input id="image_upload" name="myfile[]" type="file" class="btn btn-danger" accept="image/*" multiple>
+                              <a id="submit_btn" class="btn btn-success">Submit</a>
+                          </div>
+    
+                          </div>
+                        
+                      </div>
+    
+                    
+                  </div>
+            
+          </div>
+          <div id="results_div"></div>
+          </div>
+        </div>
+        
+    </section>
+
+    <section>
+      <div class="container  pt-3" style="width:80%">
+        <div class="row mb-3 mt-3">
+          <div class="col-md-4   ">
+            <div class="grid-div">
+                <div class="logo-icon"><img src="images/1122.png"></div>
+                <div class="logo-heading">Editing your PDF made easy</div>
+                <div class="p-text">
+                  With just a few clicks, you can rapidly edit numerous PDF file .This online tool can be used without registering.
+                </div>
+            </div>
+          </div>
+           <!-- <div class="col-md-4  ">
+             <div class="grid-div">
+            <div class="logo-icon"><img src="images/1.png"></div>
+            <div class="logo-heading">Combine multiple PDF file</div>
+            <div class="p-text">with this tool you can combine multiple pdf file into one pdf file</div>
+            </div>
+          </div> -->
+          <div class="col-md-4">
+              <div class="grid-div">
+             <div class="logo-icon"><img src="images/3.png"></div>
+             <div class="logo-heading">Secure online conversion</div>
+             <div class="p-text">
+               Smallpdf adopts SSL connections to guarantee maximum security for your files. We delete all documents one hour after conversion.
+             </div>
+             </div>
+           </div>
+           <!-- <div class="col-md-4  ">
+             <div class="grid-div">
+            <div class="logo-icon"><img src="images/2.png"></div>
+            <div class="logo-heading">Extract images in your PDF</div>
+            <div class="p-text">
+             Alternatively, you can easily extract every single embedded image in your PDF file into word format, for your convenience.
+            </div>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="col-md-4">
+          <div class="grid-div">
+         <div class="logo-icon"><img src="images/4.png"></div>
+         <div class="logo-heading">Portable cloud conversion</div>
+         <div class="p-text">
+         Our online service can Merge pdf in any browser and operating system: Windows, Mac, and Linux. No software installation is required.
+         </div>
+         </div>
+       </div>
+  
+        <div class="row">
+          <!-- <div class="col-md-4">
+             <div class="grid-div">
+            <div class="logo-icon"><img src="images/3.png"></div>
+            <div class="logo-heading">Secure online conversion</div>
+            <div class="p-text">
+              Smallpdf adopts SSL connections to guarantee maximum security for your files. We delete all documents one hour after conversion.
+            </div>
+            </div>
+          </div> -->
+
+           <div class="col-md-4">
+             <div class="grid-div">
+            <div class="logo-icon"><img src="images/5.png"></div>
+            <div class="logo-heading">Work on the go</div>
+            <div class="p-text">
+             On the road a lot without internet access? Do check out our desktop version, which allows you to convert PDF documents to JPG, PNG, GIF, TIFF,word and pdf.
+            </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </section>
+
+    <section>
+      <div class="container" style="width:85%">
+        <div class="row ps-0 p-5" >
+          <div class="col-md-6 text-center p-5">
+            <div ><img src="./images/edit-pdf.PNG"></div>
+          </div>
+          <div class="col-md-6  p-5 ps-0">
+            <ol style="margin-top: 25px;">
+              <h5>How to Edit PDF file:</h5>
+              <li>Upload your PDF file you want to Edit.</li>
+              <li>Edit your file</li>
+              <li>After editing your file wait for our tool to do it's magic!</li>
+              <!-- <li>Wait for our software to Split your file.</li> -->
+              <li>Click on download button to save it.</li>  
+            </ol>
+          </div>
+        </div>
+      </div>
+  </section>
+
+            <!-- Footer Start -->
+            <div class="footer mt-5" id="footer">
+              <div class="contain">
+              <div class="col">
+                <h1>Technology</h1>
+                <ul>
+                  <li>Data Analytics / Data Science</li>
+                  <li>Computer Vision/ Machine Learning</li>
+                  <li>Natural Language Processing</li>
+                  <li>Cloud Based ERP Service</li>
+                  <li>Web Development / Databases</li>
+                </ul>
+              </div>
+              <div class="col">
+                <h1>Contact Us</h1>
+                <ul>
+                  <li>St. No. 23, Nayyab Park Daroghawala, Lahore, Pakistan</li>
+                  <li>+92-321-6795032</li>
+                  <li>support@kztechsol.com</li>
+                  <li>(042) 36530300</li>
+                  <li>kztechsol.com</li>
+                  <li>kztechsol.net</li>
+                </ul>
+              </div>
+              <div class="co">
+                <h1>Our Aims</h1>
+                 <p>In this time technology is going to be the most essential part of the fast growing industries. So business have a thrust of technology to compete the progressing market.None of this would be possible without brilliant minds and experience.</p>
+              </div>
+            </div>
+            <div class="footer_bottom contain">
+              <div class="contain">
+                  <p>© Copyright 2020-22 <a href="https://www.kztechsol.com/" rel="noopener noreferrer">kztechsol.com.</a> All Rights Reserved</p>
+              </div>
+          </div>
+            </div>
+<!-- new funcionality -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+var api_url = 'https://api.imagespixel.com:8000'
+  document.getElementById("submit_btn").onclick = function() {
+    var form_data = new FormData();
+
+  var totalfiles = document.getElementById('image_upload').files.length;
+  if (totalfiles > 15){
+    $.notify("Please select a maximum of 15 files", "error");
+        return false;
+  }
+  for (var index = 0; index < totalfiles; index++) {
+    form_data.append("myfile[]", document.getElementById('image_upload').files[index]);
+  }
+
+  var image = $('#image_upload')[0].files[0];
+    var validExtensions = ['png', 'jpg', 'jpeg'];
+    var data_uri = $('#image_upload').prop('files')[0];
+    if (data_uri==undefined){
+        $.notify("Please select any pdf file", "error");
+        $('#image_upload').val("")
+        return false;
+    }
+
+
+    var fileName = data_uri.name;
+            var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
+            fileNameExt = fileNameExt.toLowerCase();
+            if ($.inArray(fileNameExt, validExtensions) == -1){
+                $.notify("Invalid file type", "error");
+               // alert("Invalid file type");
+               $('#image_upload').val("")
+               return false;
+            }
+            else {
+                $.notify("Uploaded Successfully", "success");
+            }
+
+         var url = 'https://api.imagespixel.com:8000/image_to_pdf/'
+         $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+                $("body").addClass("loading");
+                },
+             success: function(data) {
+                 var status = data['status']
+                 var file_changed = data['pdf_url']
+                 if( status == 'success' ){
+                      a = '';
+                      a +='<div style="box-shadow: -4px -4px 6px rgb(255 255 255 / 25%), 4px 4px 6px rgb(197 197 197 / 50%);" class="card">'
+                      a +='<div class="card-body">'  
+                      a +='<div class="row">'
+                      a +='<div class="col-md-12 text-center">'
+                      a +='<div>File is converted successfully</div>'
+                      a +='<button class="btn btn-danger"><a style="color: white; text-decoration: none;" href="' + file_changed + '" download target="_blank">Download</a></button>'    
+                      a +='</div>'
+                      a +='</div>'
+                      a +='</div>'
+                      a +='</div>'    
+                      $('#results_div').append(a);
+                 }
+             },
+             complete: function (data) {
+                $("body").removeClass("loading");
+                },
+         });
+};
+</script>
+            <!-- old functionality below -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+var api_url = 'https://api.imagespixel.com:8000'
+  document.getElementById("submit_btn").onclick = function() {
+    var form_data = new FormData();
+
+  var totalfiles = document.getElementById('image_upload').files.length;
+  if (totalfiles > 15){
+    $.notify("Please select a maximum of 15 files", "error");
+        return false;
+  }
+  for (var index = 0; index < totalfiles; index++) {
+    form_data.append("myfile[]", document.getElementById('image_upload').files[index]);
+  }
+  var validExtensions = ['png', 'jpg', 'jpeg'];
+          var data_uri = $('#image_upload').prop('files')[0];
+          if (data_uri==undefined){
+              $.notify("Please select any image file", "error");
+              $('#image_upload').val("")
+              return false;
+          }
+          var fileName = data_uri.name;
+                  var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
+                  fileNameExt = fileNameExt.toLowerCase();
+                  if ($.inArray(fileNameExt, validExtensions) == -1){
+                      $.notify("Invalid file type", "error");
+                     // alert("Invalid file type");
+                     $('#image_upload').val("")
+                     return false;
+                  }
+                  else {
+                      $.notify("Uploaded Successfully", "success");
+                  }
+
+                  var url = api_url + '/image_to_pdf/'
+         $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+                $("body").addClass("loading");
+                },
+             success: function(data) {
+                 var status = data['status']
+                 var file_changed = data['pdf_url']
+                 if( status == 'success' ){
+                      a = '';
+                      a +='<div style="box-shadow: -4px -4px 6px rgb(255 255 255 / 25%), 4px 4px 6px rgb(197 197 197 / 50%);" class="card">'
+                      a +='<div class="card-body">'  
+                      a +='<div class="row">'
+                      a +='<div class="col-md-12 text-center">'
+                      a +='<div>File is converted successfully</div>'
+                      a +='<button class="btn btn-danger"><a style="color: white; text-decoration: none;" href="' + file_changed + '" download>Download</a></button>'    
+                      a +='</div>'
+                      a +='</div>'
+                      a +='</div>'
+                      a +='</div>'    
+                      $('#results_div').append(a);
+                 }
+             },
+             complete: function (data) {
+                $("body").removeClass("loading");
+                },
+         });
+};
+</script> -->
+
+</body>
+</html>

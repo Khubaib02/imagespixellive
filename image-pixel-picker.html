@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Image pixel picker</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- updated desc,keyword -->
+      <meta name="description" content="With the help of the online tool images pixel picker, you can quickly pick background color from your images and pictures.">
+      
+      <meta name="keywords" content="pixel picker,pixel color picker,pixel colour picker,pixel selector,pixel picker chrome,pixel color detector">
+      
+        <meta name="keywords" content="youtube to mp3,youtube to mp3 converter,convert youtube to mp3,jpg to pdf,pdf to jpg,convert pdf to jpg	,convert jpg to pdf	,png to pdf	,remove bg,bg remover,back ground photo editing,image background removal,pixel picker,pixel color picker,pixel colour picker">
+        <meta name="author" content="Kaleem Waheed">
+
+        <script type="application/ld+json">
+          {
+            "@context" : "https://schema.org",
+            "@type" : "WebSite",
+            "name" : "Images Pixel",
+            "url" : "http://www.imagespixel.com/"
+          }
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="./css2.css">
+        <link rel="stylesheet" href="./app.css">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link href="./bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+        <script src="./bootstrap.bundle.min.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+        crossorigin="anonymous"></script>
+    </head>
+    <div id="navbar"></div>
+    <body>
+      <div class="container mt-5">
+        <div class="ccanvas">
+          <canvas id="canvas" class="crosshair shadow thumb" height="500px" width="1200px" ondblclick='getColorMouseClick(event)' onmousemove="getColorMouseMove(event)">
+          </canvas>
+        </div>
+        <div id="upload" class="shadow d-flex justify-content-between ccanvas">
+            <label class="text" for="file" style="cursor: pointer;display: flex; justify-content: center; align-items: center;"><h5 class="btn btn-success">Upload Image</h5></label>
+            <div>
+                <span class="color"></span><p style="color: black;">Color Will Display Here</p>
+            </div>
+        </div>
+        <div class="recent-colors"></div>
+        <input type="file"  accept="image/*" id="file" style="display: none;" onchange="drawImageOnCanvas(event)">
+        <div class="notify shadow">Copied the Color Code: rgba(255, 255, 255,)</div>
+      </div>
+
+    <div id="footer"></div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function(){
+    $("#navbar").load("./components/navbar.html");
+    $("#footer").load("./components/footer.html");
+})
+    $(".drp").click(function(e){
+   e.stopPropagation();
+})
+  </script>
+  <script src="./app.js"></script>
+</html>

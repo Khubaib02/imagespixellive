@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+                  <!-- updated desc,keyword -->
+        <meta name="description" content="Make data-driven decisions with our dashboard! Get real-time insights into your business performance with customizable dashboards, reports and analytics. Quickly identify key trends and opportunities to drive success.">
+        
+        <meta name="keywords" content="Dashboard, Analytics, Visualization, Metrics, Management, Business Intelligence, Insights, Reports, KPIs, Data, Charts, Graphs, Widgets, Automation, Customization, Monitoring, Drill-down, Trends, Security, Alerts, Interactivity.">
+        <meta name="author" content="Kaleem Waheed">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="./css2.css">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link href="./bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+        <script src="./bootstrap.bundle.min.js"></script>
+        <script src="./app.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+        crossorigin="anonymous"></script>
+    </head>
+	<body>
+		<div id="navbar"></div>
+        <div class="container">
+            <h1 class="text-center">Dashboard</h1>
+            <button id="convert" class="btn btn-success" style="width: 20%; padding: 10px 6px;">Log Out</button>
+        </div>
+		<div id="footer"></div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="module">
+      import {url_light, url_heavy} from './url.js';
+  $(document).ready(function(){
+    $("#navbar").load("./components/navbar.html");
+    $("#footer").load("./components/footer.html");
+    })
+</script>
+	</body>
+</html>

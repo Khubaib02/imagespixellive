@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Company Name Cleaner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <!-- updated desc,keyword -->
+    <meta name="description" content="Effortlessly clean company names from large PDF files with our easy-to-use platform. Our powerful software identifies and removes duplicate entries, streamlining your data and saving you time. Perfect for business professionals, researchers, and data analysts, our solution ensures accurate and error-free data by removing irrelevant information. Discover how our platform can help you improve your data accuracy and productivity. Try it today for free!">
+    
+    <meta name="keywords" content="PDF data cleaning,Data extraction,Company name cleansing,Duplicate removal">
+
+    <meta name="author" content="Kaleem Waheed">
+
+    <script type="application/ld+json">
+      {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "Images Pixel",
+        "url" : "http://www.imagespixel.com/"
+      }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="./css2.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+    crossorigin="anonymous"></script>
+</head>
+<style>
+    input[name="myfile[]"] {
+    display: none;
+}
+.overlay{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        /* background: rgba(255,255,255,0.8) url("https://raw.githubusercontent.com/projectz-tayyab/photo_app/main/loader.gif") center no-repeat;*/
+        background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+    }
+   /* body{
+        text-align: center;
+    } */
+    /* Turn off scrollbar when body element has the loading class */
+    body.loading{
+        overflow: hidden;
+    }
+    /* Make spinner image visible when body element has the loading class */
+    body.loading .overlay{
+        display: block;
+    }
+
+    .loader_div{
+      background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+      position: absolute;
+      z-index: 20000;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+<body>
+  <div class="overlay"></div>
+   <div id="navbar"></div>
+  <section id="tool-section">
+    <div class="container">
+        <h1 class=" mb-0 text-center text-blue-5">Company name Cleaner</h1>
+        <p class="mb-4 mb-md-8 text-center text-grey-5 font-weight-light">Cleaner Company Name is a powerful tool that quickly and easily cleans company names from files in xlsx or csv format. It removes special characters, duplicates, and non-alphabetical characters from company names to ensure data accuracy. With its simple and intuitive user interface, users can quickly and easily clean up their data.</p>
+  
+        <div id="file-uploader-tool" class="row justify-content-center px-2 px-sm-0" data-max-files="5" data-max-upload-size="50" data-max-largest-upload-size="2048" data-fs-limits-enabled="1" data-fs-free-limit-warnings="1" data-cloud-picker-enabled="1" data-focus-tool-on-mobile="1">
+          <div class="position-relative">
+<div id="loader_div"></div>
+<div class="uploader-tool col-lg-10 flex-md-row max-w-1000 card shadow py-5 ">
+  <div class="lllaine"></div>
+  <div id="step-1" class="step active position-relative col-md-6 d-flex flex-column align-items-center px-6 px-md-0 pl-md-5">
+      <div class="circle pulse mt-3 mb-3"></div>
+    <h6 class="step-number-mobile d-block text-grey-4 text-center">Step 1 - Please select files </h6>
+    <input id="image_upload" name="file" type="file" accept=".xlsx,.csv" class="d-none">
+    <div class="btn-group btn-block" style="width: 274px;margin-top: 7px;">
+        <button id="btn-input-file" style="padding: 10px 20px;" class="btn px-5 btn-success" onclick="document.getElementById('image_upload').click();">
+            <span class="text-center"></span>Choose Files</button>
+    </div>
+    <p id="selected_count" class="text-muted small pt-2 m-0"></p>
+  </div>
+  
+  
+  
+  <div id="step-3" class="step  col-md-6 d-flex flex-column align-items-center px-6 px-md-0 pr-md-5">
+    <div class="circle  pulse1 mt-3 mb-3"></div>
+  
+    <h6 class="step-number-mobile d-block text-grey-4 text-center">Step 2 - Start Converting</h6>
+      
+        <div class="step-number  d-md-flex align-items-center justify-content-center h3 bg-green-accent-3 text-white rounded-circle mb-8"></div>
+      
+        <button id="convert" class="btn btn-success" style="width: 274px; padding: 10px 20px;">Convert Now</button>
+  
+  </div>
+  </div>
+          </div>
+  
+  <div class="row mt-5">
+    <div class="col" id="results_div">
+  
+    </div>
+  </div>
+  </div>
+  </div>            </div>
+  </section>
+ <!-- content for the page -->
+ <section>
+  <div class="container">
+    <div class="row mt-5 text-center">
+      <div class="col-md-12">
+        <h2>About Images Pixel</h2>
+        <div>
+          Are you looking for a solution to clean company names from a file? Look no further! Images Pixel provides you the perfect solution to clean up your company names with ease. Our software helps you in easily removing unwanted characters, formatting errors, and other discrepancies from your company names. With our software, you can quickly and easily extract company names from a file, quickly and accurately. Our software also offers you the ability to customize the cleaning process, allowing you to tailor the output and obtain the desired results with accuracy. With our software you can get rid of duplicates and incorrect company names from your files without any hassle. So why wait? Try out Images Pixel today and get the job done quickly and accurately!        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mt-5">
+  <div class="container text-center">
+    <h2>How the company name cleaner tool api helps you?</h2>
+    <p>The Company Name Cleaner Tool API helps users quickly and conveniently clean up their company name. It helps to standardize the company name across different databases, formats and documents. It also removes any special characters and punctuations, which can help to avoid any confusion when it comes to searching for the company name. This tool is useful for those who need to quickly and accurately manage the company's name.</p>
+  </div>
+</section>
+<section>
+  <div class="container  pt-3" style="width:70%">
+    <div class="row mb-3 mt-3">
+      <div class="col-md-4 col-sm-12  ">
+        <div class="grid-div">
+            <div class="logo-icon"><img alt="" src="images/1122.png"></div>
+            <div class="logo-heading">How To Clean Company name using from OCR reader Api?</div>
+            <div class="p-text">
+              Click the <b>"Choose file"</b> button to upload the file you want to convert and then wait for our software to do its magic.
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="grid-div">
+            <div class="logo-icon"><img alt="" src="images/1122.png"></div>
+            <div class="logo-heading">Things To remember</div>
+            <div class="p-text">
+                <b>1)The format of the file should only be xlsx or csv.</b><br>
+                <b>2)The first row of the file will be considered as header. And header will be skipped while cleaning the names.
+                </b><br>
+                <b>3)The header should be named as " Company Name (Original)"
+                </b><br>
+                <b>4)The file should only contain one column.</b>
+            </div>
+        </div>
+      </div>
+       <div class="col-md-4  col-sm-12 ">
+         <div class="grid-div">
+        <div class="logo-icon"><img alt="" src="images/1.png"></div>
+        <div class="logo-heading">How To Download your File?</div>
+        <div class="p-text">After a few seconds of uploading your file, your file will appear below.Click the <b>"Download"</b> button to download your file</div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="grid-div">
+       <div class="logo-icon"><img alt="" src="images/3.png"></div>
+       <div class="logo-heading">Secure online conversion</div>
+       <div class="p-text">
+        company name cleaner api adopts SSL connections to guarantee maximum security for your files. We delete all documents one hour after conversion.
+       </div>
+       </div>
+     </div>
+    </div>
+</section> 
+            <div id="footer"></div>
+<!-- new funcionality -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="module">
+  $(document).ready(function(){
+    $("#navbar").load("./components/navbar.html");
+    $("#footer").load("./components/footer.html");
+})
+  import {url_light, url_heavy} from './url.js';
+  var totalfiles = document.getElementById('image_upload').files.length;
+      if(totalfiles===0){
+        $('#selected_count').text('No files selected')
+      }
+
+  document.getElementById("image_upload").onchange = function() {
+    var totalfiles = document.getElementById('image_upload').files.length;
+    var data_uri = $('#image_upload').prop('files')[0];
+    var format = $('#option_val').val();
+    $('#selected_count').text(totalfiles + ' files selected')
+    if(totalfiles>=1){
+            $('.uploader-tool').append('<div class="llaine"></div>')
+          }
+    else{
+      $.notify("Please select a maximum of 15 files", "error");
+    }
+    }
+     
+  document.getElementById("convert").onclick = function() {
+    $('#results_div').empty('');
+    var form_data = new FormData();
+    var totalfiles = document.getElementById('image_upload').files.length;
+  if (totalfiles > 15){
+    $.notify("Please select a maximum of 15 files", "error");
+        return false;
+  }
+  for (var index = 0; index < totalfiles; index++) {
+    form_data.append("file", document.getElementById('image_upload').files[index]);
+  }
+    var format = $('#option_val').find(":selected").val();
+    var validExtensions = ['xlsx', 'csv'];
+    var data_uri = $('#image_upload').prop('files')[0];
+    if (data_uri==undefined){
+        $.notify("Please select file ", "error");
+        return false;
+    }
+
+    if (format==0){
+        $.notify("Please select Language", "error");
+        // $('#image_upload').val("")
+        return false;
+    }
+
+
+    var fileName = data_uri.name;
+            var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
+            fileNameExt = fileNameExt.toLowerCase();
+            if ($.inArray(fileNameExt, validExtensions) == -1){
+                $.notify("Invalid file type", "error");
+               return false;
+            }
+            else {
+                $.notify("Uploaded Successfully", "success");
+            }
+
+         var url = url_light + '/name_cleaner/'
+
+         $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+                $("#loader_div").addClass("loader_div");
+                },
+             success: function(data) {
+              $('#image_upload').val('');
+              $('#selected_count').text('');
+              $('#results_div').empty('');
+               var status = data['status']
+                if (status=='success'){
+                  var fname = data['filename']
+                 var folder_path = data['file_path']
+                 var file_size = data['file_size']
+                 var a=''
+                  a+='<table style="width: 86%;" class="table table-striped border shadow text-center;>'
+                  a+='<thead class="bg-blue-10 text-blue-4">'
+                  a+='<tr class="d-md-table-row">'
+                  a+='<th class="font-weight-normal text-uppercase">File Name</th>'
+                  a+='<th class="size12 font-weight-normal text-uppercase text-right">File Size</th>'
+                  a+='<th>Link</th>'
+                  a+='</tr>'
+                  a+='<tr class="d-md-table-row">'
+                  a+='<td class="font-weight-normal text-uppercase" style="overflow-wrap:anywhere;">'
+                  a+=fname
+                  a+='</td>'
+                  a+='<td class="size12 font-weight-normal text-uppercase">'
+                  a+=file_size
+                  a+='</td>'
+                  a+='<td><button class="btn btn-success"><a class="download_button" href="'+ folder_path +'">Download</a></button></td>'
+                  a+='</tr>'
+                  a+='</thead>'
+                  a+='<tbody>'
+                  a+='</tbody>'
+                  a+='</table>'
+                  $('#results_div').append(a);
+                }
+                if (status=='failed'){
+                  window.open('./error.html')
+                }
+             },
+             complete: function (data) {
+                $("#loader_div").removeClass("loader_div");
+                },
+         });
+};
+$(".drp").click(function(e){
+   e.stopPropagation();
+})
+</script>
+</body>
+</html>

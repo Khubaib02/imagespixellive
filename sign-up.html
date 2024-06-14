@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign Up</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+                  <!-- updated desc,keyword -->
+        <meta name="description" content="Sign up for an account with Images Pixel to gain access to exclusive content and special offers. Create a personalized profile to save your favorite products and get personalized recommendations tailored to your interests. Sign up now to start exploring the world of Images Pixel, where you can find the latest trends and products.">
+        
+        <meta name="keywords" content="sign up, join, register, create account, new user, account registration, get started, enroll, user login, access account, open account, user signup, create profile, sign up today, registration process, become a member, log in, join now, user registration, apply now, membership registration.">
+        <meta name="author" content="Kaleem Waheed">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="./css2.css">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link href="./bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+        <script src="./bootstrap.bundle.min.js"></script>
+        <script src="./app.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+        crossorigin="anonymous"></script>
+    </head>
+	<body>
+		<div id="navbar"></div>
+<div class="container d-flex justify-content-center align-items-center">
+	<div class="card carddd mt-5 mb-5">
+		
+		<img src="./images/pexels_christina_morillo_1181263.jpg" class="card-img-top" style="height: 250px;" alt="log-in">
+		<div class="card-body">
+            <h1 class="card-title text-center">Sign Up</h1>
+			<div class="username">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">User Name</span>
+                    </div>
+                    <input type="text" id="name_upload" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+			</div>
+            <div class="fullname">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Full Name</span>
+                    </div>
+                    <input type="text" id="fullname_upload" class="form-control" placeholder="Fullname" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+			</div>
+			<div class="Password">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Password</span>
+                    </div>
+                    <input type="password" id="password_upload" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+			</div>
+            <div class="ConPassword">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Confirm Password</span>
+                    </div>
+                    <input type="password" id="conpassword_upload" class="form-control" placeholder="Confirm Password" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+			</div>
+			<div class="log-in_subbtn mt-4">
+				<button id="convert" class="btn btn-success" style="width: 20%; padding: 10px 6px;">Sign Up</button>
+			</div>
+		</div>
+	  </div>
+</div>
+		<div id="footer"></div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="module">
+  import {url_light, url_heavy} from './url.js';  $(document).ready(function(){
+    $("#navbar").load("./components/navbar.html");
+    $("#footer").load("./components/footer.html");
+})
+  document.getElementById("convert").onclick = function() {
+	  const name=$('#name_upload').val();
+	  const fullname=$('#fullname_upload').val();
+    const password=$('#password_upload').val();
+	  const conpassword=$('#conpassword_upload').val();
+    //   error handling
+      if(name==""&&fullname==""&&password==""&&conpassword==""){
+          $.notify('Enter all Fields','error')
+          return false;
+      }
+      if(fullname==""&&conpassword==""){
+          $.notify('Enter all Fields','error')
+          return false;
+      }
+      if(fullname==""&&password==""){
+          $.notify('Enter all Fields','error')
+          return false;
+      }
+      if(fullname==""&&password==""&&conpassword==""){
+          $.notify('Enter all fields','error')
+          return false;
+      }
+      if(name==""&&password==""&&conpassword==""){
+          $.notify('Enter all Fields','error')
+          return false;
+      }
+      if(name==""&&fullname==""&&conpassword==""){
+          $.notify('Enter all Fields','error')
+          return false;
+      }
+      if(name==""&&fullname==""&&password==""){
+          $.notify('Enter all Fields','error')
+          return false;
+      }
+      if(name==""&&fullname==""){
+        $.notify('Enter all Fields','error')
+          return false;
+      }
+      if(password==""&&conpassword==""){
+        $.notify('Enter all Fields','error')
+          return false;
+      }
+      if(name===""){
+          $.notify('Enter Name','error')
+          return false;
+      }
+      if(fullname==""){
+          $.notify('Enter Fullname','error')
+          return false;
+      }
+      if(password===""){
+          $.notify('Enter Password','error')
+          return false;
+      }
+      if(conpassword===""){
+          $.notify('Enter Confirm Password','error')
+          return false;
+      }
+      if(password!=conpassword){
+        $.notify('Enter Correct password','error')
+          return false;
+      }
+      // request
+      var form_data = new FormData();
+      form_data.append('username', name)
+      form_data.append('full_name', fullname)
+      form_data.append('password1', password)
+      form_data.append('password2', conpassword)
+
+        //  var url = url_light + '/ocr_reader/'
+         var url ='http://192.168.10.24:8005/signup/'
+         $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+               $("#loader_div").addClass("loader_div");
+              },
+             success: function(data) {
+               console.log(data);
+               var status = data['status']
+               var error = data['errors']['username']
+               var error1 = data['errors']['password2']
+               console.log(error1)
+              if (status=='success'){
+                window.open('./log-in.html');
+              }
+              if(status=='failed'){
+                $.notify(error,'error');
+              }
+              // updated
+              if (status === 'failed') {
+              if (error1.length > 0) {
+                for (let i = 0; i < error1.length; i++) {
+                  let errorMessage = error1[i].val();
+                  $.notify(errorMessage, 'error');
+                }
+              }}
+              },
+              complete: function (data) {
+              $("#loader_div").removeClass("loader_div");
+              },
+         });
+};
+</script>
+	</body>
+</html>

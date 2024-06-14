@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Unlock PDF</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+                <!-- updated desc,keyword -->
+    <meta name="description" content="Unlock your PDF files quickly and easily with Images Pixel. Our secure and reliable platform lets you remove password protection and other restrictions from your PDF documents, giving you full control over your files. Ideal for businesses, students, and professionals, our platform offers a simple, user-friendly experience with fast turnaround times. Say goodbye to locked PDF files and get back to work with Images Pixel. Try our PDF unlocking tool for free today!">
+
+    <meta name="keywords" content="PDF unlocking, PDF password removal, PDF restriction removal, PDF security removal, PDF editing, PDF management, Business document management, Student document management, Professional document management, User-friendly platform, Secure PDF unlocking, Reliable PDF unlocking, Fast turnaround times, Simple PDF unlocking, PDF decryption, PDF protection removal, Online PDF unlocking, PDF converter">
+
+    <meta name="author" content="Kaleem Waheed">
+
+    <script type="application/ld+json">
+      {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "Images Pixel",
+        "url" : "http://www.imagespixel.com/"
+      }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="./css2.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" type="text/css" href="./bootstrap.bundle.min.js">
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296519934945811"
+    crossorigin="anonymous"></script>
+</head>
+<style>
+    input[name="myfile[]"] {
+    display: none;
+}
+.overlay{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        /* background: rgba(255,255,255,0.8) url("https://raw.githubusercontent.com/projectz-tayyab/photo_app/main/loader.gif") center no-repeat;*/
+        background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+    }
+   /* body{
+        text-align: center;
+    } */
+    /* Turn off scrollbar when body element has the loading class */
+    body.loading{
+        overflow: hidden;
+    }
+    /* Make spinner image visible when body element has the loading class */
+    body.loading .overlay{
+        display: block;
+    }
+
+    /*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #B06AB3;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 15px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 5px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.375rem;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #B06AB3;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-radius: 0.375rem;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.loader_div{
+      background: rgba(255,255,255,0.8) url("./images/Processing.gif") center no-repeat;
+      position: absolute;
+      z-index: 20000;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+<body>
+  <div class="overlay"></div>
+<!-- Nav Start -->
+<div id="navbar"></div>
+<!-- Nav End -->
+
+    <!-- new input -->
+      <section id="tool-section">
+        <div class="container">
+            <h1 class="h3 mb-0 text-center text-blue-5">Unlock PDF</h1>
+            <p class="mb-4 mb-md-8 text-center text-grey-5 font-weight-light">Unlock your PDF online and free</p>
+      
+            <div id="file-uploader-tool" class="row justify-content-center px-2 px-sm-0" data-max-files="5" data-max-upload-size="50" data-max-largest-upload-size="2048" data-fs-limits-enabled="1" data-fs-free-limit-warnings="1" data-cloud-picker-enabled="1" data-focus-tool-on-mobile="1">
+              <div class="position-relative">
+                <div id="loader_div"></div>
+                <div class="uploader-tool col-lg-10 flex-md-row max-w-1000 card shadow py-5">
+          <!-- <div class="lline"></div> -->
+          <div class="llline"></div>
+          <div id="step-1" class="step active position-relative col-md-4 d-flex flex-column align-items-center px-6 px-md-0 pl-md-5">
+              <div class="circle pulse mt-3 mb-3"></div>
+            <h6 class="step-number-mobile d-block text-grey-4 text-center">Step 1 - Please select file</h6>
+            <input id="image_upload" name="myfile[]" type="file" accept=".pdf" class="d-none">
+            <div class="btn-group btn-block" style="width: 274px;margin-top: 7px;">
+                <button id="btn-input-file" style="padding: 10px 20px;" class="btn px-5 btn-success" onclick="document.getElementById('image_upload').click();">
+                    <span class="text-center"></span>Choose Files</button>
+            </div>
+            <p id="selected_count" class="text-muted small pt-2 m-0"></p>
+          </div>
+          
+          <div id="step-2" class="step col-md-4 d-flex flex-column align-items-center my-12 my-md-0 px-6 px-md-10">
+            <div class="circle  pulse1 mt-3 mb-3"></div>
+            <h6 class="step-number-mobile d-block text-grey-4 text-center">Step 2 - Enter Password </h6>
+            <input type="password" id="option_val" class="form-control form-control-lg text-center" style="width: 274px;margin-top: 5px; cursor: pointer;">
+            <i class="bi-eye" aria-hidden="true" id="togglePassword" style="margin-left: 240px; cursor: pointer; margin-top: -34px;"></i>
+          </div>
+          
+          <div id="step-3" class="step  col-md-4 d-flex flex-column align-items-center px-6 px-md-0 pr-md-5">
+            <div class="circle  pulse2 mt-3 mb-3"></div>
+          
+            <h6 class="step-number-mobile d-block text-grey-4 text-center">Step 3 - Start Unlocking</h6>
+          
+            <div class="step-number  d-md-flex align-items-center justify-content-center h3 bg-green-accent-3 text-white rounded-circle mb-8"></div>
+          
+            <button id="convert" class="btn btn-success" style="width: 274px; padding: 10px 20px;">Unlock Now</button>
+          
+            <!-- <p class="text-muted small pt-2 m-0">(And agree to our <a href="./terms_of_use.html" target="_blank">Terms</a>)</p> -->
+          </div>
+          </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col" id="results_div">
+      
+        </div>
+      </div>
+      </div>
+      </div>            </div>
+      </section>
+       <!-- content for the page -->
+       <section>
+        <div class="container">
+          <div class="row mt-5 text-center">
+            <div class="col-md-12">
+              <h2>About Images Pixel</h2>
+              <div>
+                Are you looking for a reliable way to unlock your PDF file? Look no further than Images Pixel! Images Pixel is the easiest and most secure way to unlock your PDF file. Our team of experts has developed a unique technology that allows you to securely unlock your PDF file without compromising the security of your data. Our technology is based on a combination of encryption and digital signatures, making sure your PDF file is completely safe and secure. With Images Pixel, you don’t have to worry about the safety and security of your PDF file. We use advanced encryption algorithms to ensure that your PDF file is completely secure and can’t be accessed by anyone else. Plus, our intuitive user-interface makes it easy to unlock your PDF file in just a few clicks.Don’t wait any longer! Unlock your PDF file today with Images Pixel. Our team of experts is available 24/7 to help you with any questions or concerns you have. With Images Pixel, you don’t have to worry about the safety and security of your PDF file. Unlock your PDF file today with Images Pixel and start enjoying the benefits of secure file sharing.              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ <section class="mt-5">
+  <div class="container text-center">
+    <h2>How Images Pixel API Helps You to Unlock your PDF?</h2>
+    <p>If you are looking for a tool that allows you to unlock Your PDF file, then you are lucky because Images Pixel is the tool that is perfect for you. With Images Pixel API you can unlock Your PDF file for free!!</p>
+  </div>
+</section>
+<section>
+  <div class="container  pt-3" style="width:70%">
+    <div class="row mb-3 mt-3">
+      <div class="col-md-4 col-sm-12  ">
+        <div class="grid-div">
+            <div class="logo-icon"><img alt="" src="images/1122.png"></div>
+            <div class="logo-heading">How To Unlock your PDF file?</div>
+            <div class="p-text">
+              Click the <b>"Choose file"</b> button to upload the file you want to unlock and then enter the password <b>"Enter Password"</b> button once you complete the process then press the <b>"Unlock Now"</b> button. Then wait for our software to do its magic.
+            </div>
+        </div>
+      </div>
+       <div class="col-md-4  col-sm-12 ">
+         <div class="grid-div">
+        <div class="logo-icon"><img alt="" src="images/1.png"></div>
+        <div class="logo-heading">How To Download Image File?</div>
+        <div class="p-text">
+          After a few seconds of uploading your file, your file will appear below.Click the <b>"Download"</b> button to download your file
+        </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="grid-div">
+       <div class="logo-icon"><img alt="" src="images/3.png"></div>
+       <div class="logo-heading">Secure online conversion</div>
+       <div class="p-text">
+        Our Unlock PDF API adopts SSL connections to guarantee maximum security for your files. We delete all documents one hour after the conversion.
+       </div>
+       </div>
+     </div>
+    </div>
+</section>
+          <!-- Footer Start -->
+          <div id="footer"></div>
+      <!-- Footer End -->
+      <!-- new functionality below -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#option_val');
+
+  togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    if (this.classList.contains('bi-eye')){
+      this.classList.remove('bi-eye');
+      this.classList.add('bi-eye-slash');
+    }
+    else{
+      this.classList.remove('bi-eye-slash');
+      this.classList.add('bi-eye');
+    }
+});
+
+</script>
+<script type="module">
+    $(document).ready(function(){
+    $("#navbar").load("./components/navbar.html");
+    $("#footer").load("./components/footer.html");
+})
+  import {url_light, url_heavy} from './url.js';
+  var totalfiles = document.getElementById('image_upload').files.length;
+      if(totalfiles===0){
+        $('#selected_count').text('No files selected')
+      }
+  function download_result(folder_path){
+  window.open(folder_path)
+  // $('#results_div').empty('');
+  $('.lline').css('width','0');
+}
+  
+  document.getElementById("image_upload").onchange = function() {
+    debugger;
+    var totalfiles = document.getElementById('image_upload').files.length;
+    var data_uri = $('#image_upload').prop('files')[0];
+    var format = $('#option_val').val();
+    $('#selected_count').text(totalfiles + ' files selected')
+    if(totalfiles>=1){
+      $('.uploader-tool').append('<div class="lline"></div>')
+      $('.lline').css('width','30%')
+      $('.llline').css('width','65%')
+    }
+    else{
+      $.notify("Please select a maximum of 15 files", "error");
+    }
+    }
+    // document.getElementById("option_val").onchange=()=>{
+    //   var format = $('#option_val').val();
+    //   // if(format==='pdf'){
+    //     $('.lline').css('width','60%')
+    //   $('.lline').css('transform','translate(30%, 87px)')
+    //   $('.llline').css('width','60%')
+    // // }
+    // } 
+  document.getElementById("convert").onclick = function() {
+    $('#results_div').empty('');
+    var form_data = new FormData();
+    var totalfiles = document.getElementById('image_upload').files.length;
+  if (totalfiles > 15){
+    $.notify("Please select a maximum of 15 files", "error");
+        return false;
+  }
+  for (var index = 0; index < totalfiles; index++) {
+    form_data.append("myfile", document.getElementById('image_upload').files[index]);
+  }
+    var format = $('#option_val').val();
+    var validExtensions = ['pdf'];
+    var data_uri = $('#image_upload').prop('files')[0];
+    if (data_uri==undefined){
+        $.notify("Please select any PDF file", "error");
+        return false;
+    }
+
+    if (format==0){
+        $.notify("Please enter password", "error");
+        return false;
+    }
+    else {
+      $('.lline').css('width','60%')
+      $('.lline').css('transform','translate(30%, 87px)')
+      $('.llline').css('width','60%')
+    }
+
+    var fileName = data_uri.name;
+            var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
+            fileNameExt = fileNameExt.toLowerCase();
+            if ($.inArray(fileNameExt, validExtensions) == -1){
+                $.notify("Invalid file type", "error");
+               return false;
+            }
+            else {
+                $.notify("Uploaded Successfully", "success");
+            }
+            
+    // var form_data = new FormData;
+         form_data.append('password', format)
+         var url = url_heavy + '/decrypt_pdf/'
+         $.ajax({
+             type: "POST",
+             url: url,
+             data: form_data,
+             cache: false,
+             processData: false,
+             contentType: false,
+             crossDomain: true,
+             beforeSend: function () {
+              $("#loader_div").addClass("loader_div");
+                },
+             success: function(data) {
+              
+              $('#image_upload').val('');
+              $('#selected_count').text('');
+              $('#results_div').empty('');
+              // $('#image_upload').attr('disabled','disabled');
+                 var status = data['status']
+                //  console.log(status);
+                if (status=='success'){
+                  var fname = data['file_name']
+                 var folder_path = data['file_path']
+                 var file_size = data['file_size']
+
+
+                  a=''
+                  a+='<table style="width: 86%;" class="table table-striped border shadow text-center">'
+                  a+='<thead class="bg-blue-10 text-blue-4">'
+                  a+='<tr class="d-none d-md-table-row">'
+                  a+='<th class="font-weight-normal text-uppercase">File Name</th>'
+                  a+='<th class="font-weight-normal text-uppercase text-right">File Size</th>'
+                  // a+='<th style="width: 20%;" class="font-weight-normal text-uppercase">Progress</th>'
+                  a+='<th>Link</th>'
+                  a+='</tr>'
+                  a+='<tr class="d-none d-md-table-row">'
+                  a+='<td class="font-weight-normal text-uppercase">'
+                  a+=fname
+                  a+='</td>'
+                  a+='<td class="font-weight-normal text-uppercase">'
+                  a+=file_size
+                  a+='</td>'
+                  a+='<td><button class="btn btn-success"><a class="download_button" href="'+ folder_path +'">Download</a></button></td>'
+                  a+='</tr>'
+                  a+='</thead>'
+                  a+='<tbody>'
+                  a+='</tbody>'
+                  a+='</table>'
+                  $('#results_div').append(a);
+                }
+                if (status=='not_encrypted'){
+                  $.notify("Please selecet a locked file!", "error");
+                }
+
+                if (status=='wrong_password'){
+                  $.notify("Please enter the correct password!", "error");
+                }
+
+                if (status=='failed'){
+                        window.open('./error.html')
+                }
+             },
+             complete: function (data) {
+              $("#loader_div").removeClass("loader_div");
+                },
+         });
+};
+$(".drp").click(function(e){
+   e.stopPropagation();
+})
+</script>
+
+<script>
+  var x, i, j, l, ll, selElmnt, a, b, c;
+  /*look for any elements with the class "custom-select":*/
+  x = document.getElementsByClassName("custom-select");
+  l = x.length;
+  for (i = 0; i < l; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+    ll = selElmnt.length;
+    /*for each element, create a new DIV that will act as the selected item:*/
+    a = document.createElement("DIV");
+    a.setAttribute("class", "select-selected");
+    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(a);
+    /*for each element, create a new DIV that will contain the option list:*/
+    b = document.createElement("DIV");
+    b.setAttribute("class", "select-items select-hide");
+    for (j = 1; j < ll; j++) {
+      /*for each option in the original select element,
+      create a new DIV that will act as an option item:*/
+      c = document.createElement("DIV");
+      c.innerHTML = selElmnt.options[j].innerHTML;
+      c.addEventListener("click", function(e) {
+          /*when an item is clicked, update the original select box,
+          and the selected item:*/
+          var y, i, k, s, h, sl, yl;
+          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          sl = s.length;
+          h = this.parentNode.previousSibling;
+          for (i = 0; i < sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              yl = y.length;
+              for (k = 0; k < yl; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          h.click();
+      });
+      b.appendChild(c);
+    }
+    x[i].appendChild(b);
+    a.addEventListener("click", function(e) {
+        /*when the select box is clicked, close any other select boxes,
+        and open/close the current select box:*/
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.toggle("select-arrow-active");
+      });
+  }
+  function closeAllSelect(elmnt) {
+    /*a function that will close all select boxes in the document,
+    except the current select box:*/
+    var x, y, i, xl, yl, arrNo = [];
+    x = document.getElementsByClassName("select-items");
+    y = document.getElementsByClassName("select-selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i < yl; i++) {
+      if (elmnt == y[i]) {
+        arrNo.push(i)
+      } else {
+        y[i].classList.remove("select-arrow-active");
+      }
+    }
+    for (i = 0; i < xl; i++) {
+      if (arrNo.indexOf(i)) {
+        x[i].classList.add("select-hide");
+      }
+    }
+  }
+  /*if the user clicks anywhere outside the select box,
+  then close all select boxes:*/
+  document.addEventListener("click", closeAllSelect);
+  </script>
+  </body>
+  </html>
